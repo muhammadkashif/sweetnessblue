@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sweetApp" ng-controller="AppController">
+<head>
+    <meta charset="utf-8">
+    <title>Send Sweetness - Build Stronger Relationships</title>
+    <meta name="description" content="Send Sweetness - Build Stronger Relationships">
+    <meta name="author" content="Muhammad Kashif Abdullah">
+    <meta http-equiv="cache-control" content="max-age=0"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="google" value="notranslate"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="user-scalable=no,width=device-width">
+
+    <!-- ---------------------------------------------------------------- -->
+    <!-- -----------------------Blue------------------------------------- -->
+
+    <meta name="apple-mobile-web-app-capable" content="yes"
+          media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+
+    <link rel="shortcut icon" href="images_blue/favicon.ico">
+    <link rel="apple-touch-icon" href="images_blue/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images_blue/touch-icon-iphone4.png">
+    <link rel="apple-touch-startup-image" href="images_blue/demo.png">
+    <link rel="apple-touch-startup-image" href="images_blue/ipad-startup-image.png">
+
+    <!--<link rel="stylesheet" href="css/blue/css/style.css" type="text/css" media="all">-->
+    <!--<link rel="stylesheet" href="css/blue/css/purple.css" type="text/css" media="all">-->
+    <link rel="stylesheet" href="{{cssStyle}}" type="text/css" media="all">
+    <link rel="stylesheet" href="css/blue/css/mediaqueries.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/blue/css/font-awesome.css" type="text/css" media="all">
+
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" type="text/css" href="css/blue/css/ie.css"/><![endif]-->
+
+    <!-- -----------------------Blue End--------------------------------- -->
+    <!-- ---------------------------------------------------------------- -->
+
+
+    <link href="fonts/style-typo.css" rel="stylesheet" type="text/css">
+    <!--<link href="css/responsive.css" rel="stylesheet" type="text/css" >
+    <link href="css/sweet.css" rel="stylesheet" type="text/css">-->
+    <link href="{{cssResponsive}}" rel="stylesheet" type="text/css" >
+    <link href="{{cssSweet}}" rel="stylesheet" type="text/css">
+    <link rel="apple-touch-icon" href="images/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/touch-icon-iphone4.png">
+    <link rel="apple-touch-startup-image" href="images/demo.png">
+    <link rel="apple-touch-startup-image" href="images/ipad-startup-image.png"
+          media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)"/>
+    <link rel="shortcut icon" href="images/favicon0.ico">
+
+    <!--&lt;!&ndash; Le HTML5 shim, for IE6-8 support of HTML5 elements &ndash;&gt;-->
+    <!--&lt;!&ndash;[if lt IE 9]>-->
+    <!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+
+    <!-- Le fav and touch icons --><!--Mobile cache-->
+
+    <!-- start Mixpanel -->
+    <script type="text/javascript">
+        (function (e, b) {
+            if (!b.__SV) {
+                var a, f, i, g;
+                window.mixpanel = b;
+                a = e.createElement("script");
+                a.type = "text/javascript";
+                a.async = !0;
+                a.src = ("https:" === e.location.protocol ? "https:" : "http:") + '//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';
+                f = e.getElementsByTagName("script")[0];
+                f.parentNode.insertBefore(a, f);
+                b._i = [];
+                b.init = function (a, e, d) {
+                    function f(b, h) {
+                        var a = h.split(".");
+                        2 == a.length && (b = b[a[0]], h = a[1]);
+                        b[h] = function () {
+                            b.push([h].concat(Array.prototype.slice.call(arguments, 0)))
+                        }
+                    }
+
+                    var c = b;
+                    "undefined" !==
+                            typeof d ? c = b[d] = [] : d = "mixpanel";
+                    c.people = c.people || [];
+                    c.toString = function (b) {
+                        var a = "mixpanel";
+                        "mixpanel" !== d && (a += "." + d);
+                        b || (a += " (stub)");
+                        return a
+                    };
+                    c.people.toString = function () {
+                        return c.toString(1) + ".people (stub)"
+                    };
+                    i = "disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+                    for (g = 0; g < i.length; g++)f(c, i[g]);
+                    b._i.push([a, e, d])
+                };
+                b.__SV = 1.2
+            }
+        })(document, window.mixpanel || []);
+        mixpanel.init("e1c3f534a66f371ed1346002ab70136c");
+    </script>
+    <!-- end Mixpanel -->
+
+</head>
+
+<body>
+<div id="fb-root"></div>
+<!--<div id="login"></div>-->
+<div id="mybody" class="wrapper no-bg-color">
+    <!--<section class="container">-->
+    <!--<div class={{wrapper}}>-->
+
+    <section ng-include="'header.html'" ng-show="isUserLoggedIn"></section>
+
+    <!--TODO: made ng-bind=info.title and ng-cloak change.PV put it back later-->
+    <!--<span ng-show=info.title ng-cloak>-->
+    <!--<div class="alert sweet-alert-info">-->
+    <!--<button type="button" class="close" data-dismiss="alert">×</button>-->
+    <!--<p style="color:#000000" ng-cloak>{{info.title}}</p>-->
+    <!--</div>  -->
+    <!--</span>-->
+      <span ng-cloak>
+        <section ng-show="isPublicPage">
+                <span ng-switch on="renderPath[ 0 ]">
+                    <div ng-switch-when="name">
+                        <section ng-include="'views/partials/sweetName.html'"
+                                 ng-show="renderPath[1] == 'custom'"></section>
+                        <section ng-include="'views/partials/sent.html'" ng-show="renderPath[1] == 'sent'"></section>
+                    </div>
+                </span>
+        </section>
+      </span>
+
+      <span ng-cloak>
+        <section ng-show="!isUserLoggedIn">
+            <span ng-show="showLogin">
+                <span ng-switch on="renderPath[ 0 ]">
+                    <span ng-switch-when="auth">
+                        <span ng-include="'views/auth/new.html'" ng-show="renderPath[1] =='new'"></span>
+                        <span ng-include="'views/auth/sent.html'" ng-show="renderPath[1] =='sent'"></span>
+                        <span ng-include="'views/auth/sms.html'" ng-show="renderPath[1] =='sms'"></span>
+                    </span>
+                </span>
+            </span>
+        </section>
+      </span>
+
+    <div ng-switch on="renderPath[ 0 ]">
+
+        <div ng-switch-when="friends" ng-controller=AuthController>
+            <span ng-include="'views/friends/discover.html'" ng-show="renderPath[1] =='discover'"></span>
+        </div>
+
+        <div ng-switch-when="sweet" ng-controller=SweetCtrl>
+            <section ng-include="'views/sweets/home.html'" ng-show="renderPath[1] =='home'"></section>
+            <section ng-include="'views/sweets/new.html'" ng-show="renderPath[1] == 'new'"></section>
+            <section ng-include="'views/sweets/show.html'" ng-show="renderPath[1] == 'show'"></section>
+            <section ng-include="'views/sweets/interaction.html'"
+                     ng-show="renderPath[1] == 'interaction'"></section>
+            <section ng-include="'views/sweets/confirmation.html'"
+                     ng-show="renderPath[1] == 'confirmation'"></section>
+            <section ng-include="'views/sweets/expressions.html'"
+                     ng-show="renderPath[1] == 'expressions'"></section>
+            <section ng-include="'views/user/interactions/show.html'"
+                     ng-show="renderPath[1] == 'userinteraction'"></section>
+            <section ng-include="'views/user/interactions/people.html'"
+                     ng-show="renderPath[1] == 'people'"></section>
+            <section ng-include="'views/user/interactions/friend.html'"
+                     ng-show="renderPath[1] == 'friend'"></section>
+            <section ng-include="'views/user/interactions/feed.html'"
+                     ng-show="renderPath[1] == 'feed'"></section>
+            <section ng-include="'views/user/interactions/timeline.html'"
+                     ng-show="renderPath[1] == 'timeline'"></section>
+            <section ng-include="'views/sweets/sent.html'" ng-show="renderPath[1] == 'sent'"></section>
+            <section ng-include="'views/friends/search.html'" ng-show="renderPath[1] == 'fsearch'"></section>
+        </div>
+
+        <div ng-switch-when="user">
+            <section ng-include="'views/user/preference.html'"
+                     ng-show="renderPath[1] == 'preference'"></section>
+        </div>
+
+        <div ng-switch-when="contacts" ng-controller=ContactCtrl>
+            <section ng-include="'views/user/contacts/import.html'"
+                     ng-show="renderPath[1] =='import'"></section>
+            <section ng-include="'views/user/contacts/list.html'" ng-show="renderPath[1] =='list'"></section>
+        </div>
+
+        <div ng-switch-when="admin" ng-controller=AdminCtrl>
+            <section ng-include="'views/admin/bulk/gestures.html'"
+                     ng-show="renderPath[1] == 'bulkgestures'"></section>
+        </div>
+
+        <div ng-switch-when="help" ng-controller=HelpCtrl>
+            <section ng-include="'views/help/new.html'" ng-show="renderPath[1] == 'new'"></section>
+            <section ng-include="'views/help/sent.html'" ng-show="renderPath[1] == 'sent'"></section>
+        </div>
+
+        <div ng-switch-when="company">
+            <section ng-include="'views/company/privacy.html'" ng-show="renderPath[1] == 'privacy'"></section>
+        </div>
+
+        <div ng-switch-when="locations" ng-controller=SweetCtrl>
+            <section ng-include="'views/location/place.html'" ng-show="renderPath[1] == 'place'"></section>
+            <section ng-include="'views/location/sent.html'" ng-show="renderPath[1] == 'sent'"></section>
+        </div>
+
+        <div ng-switch-when="location" ng-controller=SweetCtrlPlace>
+            <section ng-include="'views/location/sweetplace.html'"
+                     ng-show="renderPath[1] == 'sweetplace'"></section>
+            <section ng-include="'views/location/sweetsent.html'"
+                     ng-show="renderPath[1] == 'sweetsent'"></section>
+            <!--<section ng-include="'views/location/enterMobile.html'" ng-show="renderPath[1] == 'entermobile'"></section>-->
+        </div>
+
+        <div ng-switch-when="kiosk" ng-controller=SweetCtrl>
+            <section ng-include="'views/kiosk/register.html'" ng-show="renderPath[1] == 'register'"></section>
+            <section ng-include="'views/kiosk/register_visibility.html'" ng-show="renderPath[1] == 'register_visibility'"></section>
+        </div>
+
+        <div ng-switch-when="place" ng-controller=SweetCtrl>
+            <section ng-include="'views/place/placeHeader.html'"
+                     ng-show="renderPath[1] == 'placeHeader'"></section>
+            <section ng-include="'views/place/sweetPlace.html'"
+                     ng-show="renderPath[1] == 'sweetplace'"></section>
+            <section ng-include="'views/place/createSweetPlace.html'"
+                     ng-show="renderPath[1] == 'createsweetplace'"></section>
+            <section ng-include="'views/place/showPlace.html'" ng-show="renderPath[1] == 'showplace'"></section>
+            <section ng-include="'views/place/searchPlace.html'"
+                     ng-show="renderPath[1] == 'searchplace'"></section>
+            <section ng-include="'views/place/myPlaces.html'" ng-show="renderPath[1] == 'myplaces'"></section>
+            <section ng-include="'views/place/joinPlace.html'" ng-show="renderPath[1] == 'joinplace'"></section>
+            <section ng-include="'views/place/joinPlaces.html'"
+                     ng-show="renderPath[1] == 'joinplaces'"></section>
+            <section ng-include="'views/place/feed.html'" ng-show="renderPath[1] == 'feed'"></section>
+            <section ng-include="'views/place/timeline.html'" ng-show="renderPath[1] == 'timeline'"></section>
+            <section ng-include="'views/place/friend.html'" ng-show="renderPath[1] == 'friend'"></section>
+            <section ng-include="'views/place/sent.html'" ng-show="renderPath[1] == 'sent'"></section>
+            <section ng-include="'views/place/sentFriend.html'"
+                     ng-show="renderPath[1] == 'sentfriend'"></section>
+            <section ng-include="'views/place/test.html'" ng-show="renderPath[1] == 'test'"></section>
+            <section ng-include="'views/place/test2.html'" ng-show="renderPath[1] == 'test2'"></section>
+            <section ng-include="'views/place/gmap.html'" ng-show="renderPath[1] == 'gmap'"></section>
+            <section ng-include="'views/place/placeProfile.html'"
+                     ng-show="renderPath[1] == 'placeprofile'"></section>
+            <section ng-include="'views/user/sittings.html'" ng-show="renderPath[1] == 'setting'"></section>
+            <section ng-include="'views/place/interAction.html'"
+                     ng-show="renderPath[1] == 'interaction'"></section>
+            <section ng-include="'views/place/interActionP.html'"
+                     ng-show="renderPath[1] == 'interactionp'"></section>
+        </div>
+
+        <!--<div ng-switch-when="name" ng-controller=SweetCtrlPlace>
+          <section ng-include="'views/partials/sweetName.html'" ng-show="renderPath[1] == 'custom'"></section>
+            <section ng-include="'views/partials/sent.html'" ng-show="renderPath[1] == 'sent'"></section>
+        </div>-->
+
+    </div>
+
+
+    <section id="footer" ng-include="'footer.html'"></section>
+    <!--</div>-->
+    <!--</section>-->
+</div>
+<!-- /container -->
+
+<!-- ---------------------------------------------------------------- -->
+<!-- -----------------------Blue------------------------------------- -->
+<!--<script src="js/blue/js/jquery.accordion.js"></script>
+<script src="js/blue/js/main.js"></script>-->
+<script type="text/javascript" src="js/blue/js/html5.js"></script>
+<script src="js/blue/js/hide-address-bar.js"></script>
+<script src="js/thirdparty/jquery-1.9.1.js"></script>
+<script src="js/thirdparty/angular-resource.js"></script>
+
+<!-- -----------------------Blue End--------------------------------- -->
+<!-- ---------------------------------------------------------------- -->
+
+<!-- ********** PhoneGap ********************* -->
+<script src="phonegap.js"></script>
+<script src="cdv-plugin-fb-connect.js"></script>
+<script src="facebook-js-sdk.js"></script>
+<!-- ********** PhoneGap End ********************* -->
+
+
+<!-- JavaScript libraries -->
+
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<script src="lib/angular/angular.min.js"></script>
+<!--<script src="js/jquery/jquery-1.8.3.js"></script>-->
+<script src="js/jquery/jquery-ui.min.js"></script>
+<script src="js/library/timeago.js"></script>
+<script src="lib/parse/parse-min.js"></script>
+<!--<script type="text/javascript" src="js/blue/js/append-footer.js"></script>-->
+<!--<script src="js/jquery/maskedinput.js"></script>-->
+
+<!--<script src="lib/angular/angular-mocks.js"></script>-->
+<!--<script src="lib/angularui/angular-ui.js"></script>-->
+<!--<script src="lib/http-auth-interceptor.js"></script>-->
+
+<script src="lib/localStorageModule.js"></script>
+<script src="js/app.js?123120131436"></script>
+<script src="js/controllers.js?123120132313"></script>
+<script src="js/CtrlTimerHandler.js"></script>
+<script src="js/filters.js?123120131436"></script>
+<script src="js/services.js?123120131436"></script>
+<script src="js/directives.js?123120131436"></script>
+<script src="lib/angular/angular-resource.min.js"></script>
+<script src="lib/angular/angular-sanitize.min.js"></script>
+<script src="js/library/underscore-min.js"></script>
+<!--<script src="js/library/swipeview.js"></script>-->
+
+<script src="js/library/hammer.js"></script>
+
+<!--<script src="js/library/quo.js"></script>-->
+
+<!--<script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&libraries=places"></script>
+<script src="js/angular-google-maps.js"></script>
+<script src="js/ui-bootstrap-custom-0.4.0.js"></script>
+<!--<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.4.0.js"></script>-->
+
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-42651177-1', 'jklabz.com');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
+
+<!-- Le styles -->
+<!--<link href="css/bootstrap.css" rel="stylesheet">-->
+<!--<link rel="stylesheet" href="css/font-awesome/font-awesome.css"> -->
+
+<!--<link rel="stylesheet" href="css/add2home.css">-->
+<!--<script type="application/javascript" src="js/add2home.js"></script>-->
+
+<!--<style type="text/css">-->
+<!--body {-->
+<!--/*padding-top: 60px;*/-->
+<!--/*padding-bottom: 40px;*/-->
+<!--}-->
+<!--</style>-->
+
+<!--<link href="css/bootstrap-responsive.css" rel="stylesheet">-->
+
+<!--<link rel="stylesheet" href="css/divshot/divshot-util.css">-->
+<!--<link rel="stylesheet" href="css/divshot/themes/amelia/bootstrap.min.css">-->
+<!--<link rel="stylesheet" href="css/divshot/bootstrap-responsive.css">-->
+
+<!--<link href="css/angularui/angular-ui.css" rel="stylesheet">-->
+<!--<link href="css/jquery/jquery-ui.css" rel="stylesheet">-->
+
+<!--<link href="css/jasny/jasny-bootstrap.css" rel="stylesheet">-->
+<!--<link href="css/jasny/jasny-bootstrap-responsive.css" rel="stylesheet">-->
+
+<!--<link rel="shortcut icon" href="../assets/ico/favicon.ico">-->
+<!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">-->
+<!--<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">-->
+<!--<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">-->
+<!--<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">     -->
+
+<!--<script type="text/javascript" src="https://api.cloudsponge.com/address_books.js"></script>-->
+<!--<script src="js/bootstrap/bootstrap.js"></script>-->
+<!--<script src="js/bootstrap/bootstrap-collapse.js"></script>-->
+
+<!--<script src="js/jasny/bootstrap-fileupload.js"></script>-->
+<!--<script src="js/jasny/bootstrap-fileupload.js"></script>-->
+<!--<script src="js/jasny/bootstrap-inputmask.js"></script>-->
+<!--<script src="js/jasny/jasny-bootstrap.js"></script>-->
+<!--<script src="js/jasny/jasny-bootstrap.min.js"></script>-->

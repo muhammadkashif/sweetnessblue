@@ -1,0 +1,102 @@
+<div class="show-place">
+
+    <h2>{{currentPlace.get("placeName")}}</h2>
+    <span>{{currentPlace.get("placeDesc")}}</span>
+    <span>{{currentPlace.get("address")}}</span>
+
+    <h2>{{newPlace.placeName}}</h2>
+    <span>{{newPlace.placeSweetName}}</span>
+    <!--<span>{{newPlace.formatted_address}}</span>-->
+
+    <div class="col08">
+
+        <!--<div class="choose-picture"> <img src="images/place-user-image.jpg"   alt="img"></div>-->
+        <!--<div class="choose-location">
+
+            <div class="google-map"
+                 center="centerProperty"
+                 zoom="zoomProperty"
+                 markers="markersProperty"
+                 latitude="clickedLatitudeProperty"
+                 longitude="clickedLongitudeProperty"
+                 mark-click="true"
+                 draggable="true"
+                 style="height: 300px; width: 800px;">
+            </div>
+        </div>-->
+
+    </div>
+
+    <div class="clear"></div>
+</div>
+
+<section class="gallery-area-place" ng-hide="latestSweet && latestSweet.id">
+    <section class="slide-images" id="place-friends-list">
+        <ul class="image-gallery">
+            <!--<li tap ng-repeat="uplace in usersInPlaces | shuffle | startFrom:currentPage*pageSize | limitTo:pageSize">-->
+            <li tap ng-repeat="uplace in usersInPlaces | startFrom:currentPage*pageSize | limitTo:pageSize">
+                <img tap ng-src="http://graph.facebook.com/{{uplace.get('userID')}}/picture?width=200&height=200"
+                     title="{{uplace.get('userName')}}"
+                     ng-click="sendPlaceGesture(uplace)"
+
+                     next="nextPage()" prev="prevPage()"
+                     friend="{{uplace}}"
+                        />
+                <span sweetplace="{{uplace}}"></span>
+            </li>
+        </ul>
+    </section>
+    <div class="clear"></div>
+</section>
+
+<!-- ------------------------------------------------------------------------------- -->
+<!-- Place followers                                                                 -->
+<!-- ------------------------------------------------------------------------------- -->
+
+<!--<div class="follow">
+    <span place="{{currentPlace}}" ng-click="follow(currentPlace)" ng-show="placeFollow">follow</span>
+    <span ng-click="unfollow(currentPlace)" ng-show="placeUnFollow">unfollow</span>
+</div>
+
+<section class="gallery-followers" id="place-followers">
+    <ul class="image-gallery">
+        &lt;!&ndash;<li tap ng-repeat="uplace in usersInPlaces | shuffle | startFrom:currentPage*pageSize | limitTo:pageSize">&ndash;&gt;
+        <li tap ng-repeat="follow in placeFollower">
+            <img tap ng-src="{{follow.get('userpic')}}"
+                 title="{{follow.get('username')}}"
+                    />
+            &lt;!&ndash;<span sweetplace="{{follow}}"></span>&ndash;&gt;
+        </li>
+    </ul>
+</section>
+<div class="clear"></div>-->
+<!-- ---------------------------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------------- -->
+
+<div class="clear"></div>
+<div class="create-a-place col07" ng-show="placeJoin">
+    <input name="" class="create-place-btn" type="button" value="Join This Place" ng-click=addPlace(currentPlace)>
+</div>
+
+<div class="feeds-area-place">
+    <a tapplace
+       ng-repeat="sweet in placeSweets | startFrom:currentPageInteraction*pageSizePlace | limitTo:pageSizePlace">
+        <div class="col01">
+            <div class="user-img">
+                <img ng-src="{{sweet.get('receiverPicture') || 'img/avatar.png'}}"/>
+            </div>
+
+            <div class="my-text">
+                <p>
+                    <span sweetpublic="{{sweet}}"></span>
+
+                    <br/>
+                    <span ng-bind-template="{{ sweet.updatedAt.toRelativeTime() }}"></span>
+                </p>
+            </div>
+
+        </div>
+    </a>
+
+    <div class="clear"></div>
+</div>

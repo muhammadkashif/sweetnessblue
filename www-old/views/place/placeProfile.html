@@ -1,0 +1,139 @@
+<div class="show-place">
+
+    <h2>{{currentPlace.get("placeName")}}</h2>
+    <span>{{currentPlace.get("placeDesc")}}</span>
+    <span>{{currentPlace.get("placeSweetName")}}</span>
+
+    <div class="col08">
+
+        <!--<div class="choose-picture"> <img src="images/place-user-image.jpg"   alt="img"></div>-->
+        <!--<div class="choose-location">
+
+            <div class="google-map"
+                 center="centerProperty"
+                 zoom="zoomProperty"
+                 markers="markersProperty"
+                 latitude="clickedLatitudeProperty"
+                 longitude="clickedLongitudeProperty"
+                 mark-click="true"
+                 draggable="true"
+                 style="height: 300px; width: 800px;">
+            </div>
+        </div>-->
+
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+<section class="gallery-area-place" ng-hide="latestSweet && latestSweet.id">
+    <section class="slide-images" id="place-friends-list">
+        <ul class="image-gallery">
+            <li ng-repeat="uplace in usersInPlaces | startFrom:currentPage*pageSize | limitTo:pageSize">
+
+                <!--<img tap ng-src="http://graph.facebook.com/{{uplace.get('userID')}}/picture?width=200&height=200"
+                     title="{{uplace.get('userName')}}"
+                     ng-click="sendPlaceGesture(uplace)"
+
+                     next="nextPage()" prev="prevPage()"
+                     friend="{{uplace}}"
+                        />-->
+
+                <img tap ng-src="http://graph.facebook.com/{{uplace.get('userID')}}/picture?width=200&height=200"
+                     title="{{uplace.get('userName')}}"
+                     next="nextPage()" prev="prevPage()"
+                     friend="{{uplace}}"
+                     ng-click="rejectReqPlace(uplace)"/>
+
+                <!--<span sweetplace="{{uplace}}"></span>-->
+
+            </li>
+        </ul>
+    </section>
+    <div class="clear"></div>
+</section>
+
+<!-- --------------------------------------------------------------------- -->
+<!-- --------------------------------------------------------------------- -->
+
+<div class="feeds-area-place">
+    <a ng-repeat="users in placeJoinReq">
+        <div class="col01">
+            <div class="user-img">
+                <img ng-src="{{users.get('userPic') || 'img/avatar.png'}}"/>
+            </div>
+
+            <div class="my-text">
+                <p>
+                    <span sweet="{{users}}"></span>
+                    {{users.get('userName')}} wants to join this place
+                    <br/>
+                    <span class="accept" ng-click="acceptReq(users)"></span>
+                    <span class="reject" ng-click="rejectReq(users)"></span>
+                </p>
+            </div>
+
+        </div>
+    </a>
+
+    <div class="clear"></div>
+</div>
+
+<section class="main-circle-area-place">
+    <section class="main-circle" ng-show="showReqJoin" >
+        <img class="circle-main-img" />
+
+        <div>
+            <div class="col03"></div>
+            <div class="col04a"><span>Do you want to remove this person</span></div>
+        </div>
+
+    </section>
+</section>
+<div class="col02" ng-show="showReqJoin">
+    <div class="cancel-btn"><a ng-click="cancelReq()">Cancel</a></div>
+    <div class="send-btn"><a ng-click="rejectPlaceProfileUser()">Reject</a></div>
+
+</div>
+
+<!-- --------------------------------------------------------------------- -->
+<!-- --------------------------------------------------------------------- -->
+<div class="feeds-area-place" ng-hide="placeComments">
+    <a ng-repeat="comm in comment">
+        <div class="col01_place-profile">
+            <div class="user-img">
+                <img ng-src="{{comm.get('receiverPicture') || 'img/avatar.png'}}"/>
+            </div>
+
+            <div class="my-text-comment">
+                <p>
+                    <!--<span sweet="{{comm}}"></span>-->
+                    <!--{{comm.get('comment')}}-->
+                   <!-- {{comm.get('mobile')}}-->
+                   <!-- <br/>
+                    <span class="comment-left">--><!--{{comm.get('mobile')}}--></span>
+                    <!--<span class="comment-right">{{comm.get('rating')}}</span>-->
+                   <!-- <span class="comment-right">-->
+                            <!--<div star-rating1 rating-value="rating" max="{{comm.get('rating')}}" readonly="true"></div>
+                    </span>-->
+                    
+                    <div class="place-profile-stars">
+                        <div star-rating1 rating-value="rating" max="{{comm.get('rating')}}" readonly="true"></div>
+                    </div>
+                     <div class="place-profile-comments">
+
+                     </div>
+                     <div class="place-profile-number"> {{comm.get('mobile')}} </div>
+                    
+                </p>
+            </div>
+
+        </div>
+    </a>
+
+    <div class="clear"></div>
+</div>
+
+<!-- --------------------------------------------------------------------- -->
+

@@ -1,0 +1,120 @@
+<!--<div style="width:800px;height:200px;background-color:#ff0000">-->
+<!--Swipe me-->
+<!--</div>-->
+<!--</div>-->
+<!--<h3>Interaction</h3>-->
+
+
+<!--<div flip leftPage="/sweet/feed" rightPage="/sweet/timeline">-->
+<!--<div class="feeds-area">-->
+
+<!--<span ng-show="sweets.length > 0">No Interactions yet!</span>-->
+<!--<a ng-repeat="sweet in bee.sortByProp('updatedAt')">-->
+
+<!--<div class="col01">-->
+<!--<div ng-show="bee.senderId == loggedInUser.id" class="user-img"><img ng-src="{{bee.senderPicture || 'img/avatar.png'}}"/></div>-->
+<!--<div ng-show="bee.senderId != loggedInUser.id" class="feed-img"><img ng-src="{{bee.senderPicture || 'img/avatar.png'}}"/></div>-->
+
+<!--<div ng-show="bee.senderId == loggedInUser.id" class="my-text">-->
+<!--<p>-->
+<!--<span ng-bind-template="-->
+<!--{{sweetPerson(bee.senderName)}}-->
+<!--&nbsp;{{bee.text || bee.gesture.template}}-->
+<!--&nbsp;{{sweetPersonMe(bee.receiverName,bee.senderName)}}">-->
+<!--</span>-->
+<!--</p>-->
+<!--</div>-->
+
+<!--<div ng-show="bee.senderId != loggedInUser.id" class="text">-->
+<!--<p>-->
+<!--<span ng-bind-template="-->
+<!--{{sweetPerson(bee.senderName)}}-->
+<!--&nbsp;{{bee.text || bee.gesture.template}}-->
+<!--&nbsp;{{sweetPersonMe(bee.receiverName,bee.senderName)}}">-->
+<!--</span>-->
+<!--</p>-->
+<!--</div>-->
+
+
+<!--</div>-->
+
+<!--</a>-->
+
+
+<!--</div>-->
+<!--</div>-->
+
+
+<div flip leftPage="/sweet/feed" rightPage="/sweet/timeline">
+    <div class="feeds-area">
+        <!--Total feeds {{interaction[friend.id].sweets.length}}-->
+        <a ng-repeat="sweet in interaction[friend.id].sweets.sortByProp('updatedAt')">
+
+            <div class="col01">
+                <div ng-show="sweet.get('senderId') == loggedInUser.id" class="user-img"><img
+                        ng-src="{{sweet.get('senderPicture') || 'img/avatar.png'}}"/></div>
+                <div ng-show="sweet.get('senderId') != loggedInUser.id" class="feed-img"><img
+                        ng-src="{{sweet.get('senderPicture') || 'img/avatar.png'}}"/></div>
+
+                <div ng-show="sweet.get('senderId') == loggedInUser.id" class="my-text">
+                    <p>
+                        <!--<span ng-bind-template="-->
+                        <!--{{sweetPerson(sweet)}}-->
+                        <!--{{sweet.get('text') || sweet.get('gesture').template}}-->
+                        <!--{{sweetPersonMe(sweet)}}-->
+
+                        <!--">-->
+                        <!--</span>-->
+                        <span sweet="{{sweet}}"></span>
+                        <br/>
+                        <span ng-bind-template="{{ sweet.updatedAt.toRelativeTime() }}"></span>
+                    </p>
+                </div>
+
+                <div ng-show="sweet.get('senderId') != loggedInUser.id" class="text">
+                    <p>
+                        <!--<span ng-bind-template="-->
+                        <!--{{sweetPerson(sweet)}}-->
+                        <!--{{sweet.get('text') || sweet.get('gesture').template}}-->
+                        <!--{{sweetPersonMe(sweet)}}">-->
+                        <!--</span>-->
+                        <span sweet="{{sweet}}"></span>
+                        <br/>
+                        <span ng-bind-template="{{ sweet.updatedAt.toRelativeTime() }}"></span>
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </a>
+
+
+    </div>
+</div>
+
+
+<!--{{sweet.get('senderPhone')}}-->
+<!--{{sweet.get('receiverPhone')}}-->
+
+
+<!--<div class="wrapper-feeds">-->
+
+<!--</div>-->
+
+<!--<span class="well-small"> {{sweetPerson(sweet.get("senderName"))}}-->
+<!--&nbsp;{{sweet.get('text') || sweet.get('gesture').template}}-->
+<!--&nbsp;{{sweetPersonMe(sweet.get("receiverName"),sweet.get("senderName"))}}-->
+<!--</span>-->
+
+<!--<br/><span timeago-autoupdate="{{sweet.updatedAt.timestamp}}" style='font-size: 9px'> {{sweet.updatedAt | date:'MMM dd, yyyy'}}</span>        -->
+<!--- {{sweet.get("senderPhone")}} - {{sweet.get("receiverName")}} - {{sweet.get("receiverPhone")}}-->
+<!--<span timeago="{{sweet.updatedAt.timestamp}}" style='font-size: 9px'> {{sweet.updatedAt | date:'MMM dd, yyyy'}}</span>-->
+
+<!--<img    ng-show="sweet.get('senderId')!=loggedInUser.id"-->
+<!--ng-src="{{sweet.get('senderPicture') || 'img/avatar.png'}}"-->
+<!--class="round-image-medium alignleft">-->
+
+
+

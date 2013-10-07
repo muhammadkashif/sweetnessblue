@@ -1,0 +1,237 @@
+<div class="show-place-public" ng-controller="SweetCtrlPlace" ng-show="showPlaceFeed">
+
+    <header class="header">
+        <div class="heading-title-holder">
+            <div ng-show="gustPageInfo">
+                <div ng-repeat="gplace in currentPlace">
+                    <span class="heading-title">{{gplace.get("placeName")}}</span>
+                    <em class="heading-sub-title">{{gplace.get("gname")}}.</em>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="banner">
+        <img src="images_blue/banner-1.png" alt="banner">
+    </div>
+    <span class="thankyou-title">Love your barista? say thank you!</span>
+    <div class="container">
+        <!-- ------------------------------------------------------------------------------- -->
+        <!-- Place Feeds                                                                -->
+        <!-- ------------------------------------------------------------------------------- -->
+        <!--<section class="" ng-show="showPlaceFeed">-->
+        <section>
+            <ul class="social-connection">
+                <li ng-repeat="uplace in usersInPlaces">
+                    <span class="person-info">
+                        <img tap ng-src="http://graph.facebook.com/{{uplace.get('userID')}}/picture?width=200&height=200"
+                             title="{{uplace.get('userName')}}"
+                             ng-click="sendPlaceGesture(uplace)"
+
+                             next="nextPage()" prev="prevPage()"
+                             friend="{{uplace}}"
+                                />
+                    </span>
+                    <a href="#" class="person-name">{{uplace.get('userName')}}</a>
+                </li>
+            </ul>
+
+            <!-- --------------------------------Place followers-------------------------------- -->
+            <!-- ------------------------------------------------------------------------------- -->
+            <!--<section class="gallery-followers" id="place-followers">
+                <ul class="image-gallery">
+                    <li ng-repeat="uplace in usersInPlaces">
+                        <img tap ng-src="http://graph.facebook.com/{{uplace.get('userID')}}/picture?width=200&height=200"
+                             title="{{uplace.get('userName')}}"
+
+                             next="nextPage()" prev="prevPage()"
+                             friend="{{uplace}}"
+                                />
+                    </li>
+                </ul>
+            </section>-->
+            <!-- ---------------------------------------------------------------------------------------- -->
+            <!-- ---------------------------------------------------------------------------------------- -->
+
+            <!-- --------------------------------Place Feed------------------------------------- -->
+            <!-- ------------------------------------------------------------------------------- -->
+
+            <!--<div class="feeds-area-place">
+                <a ng-repeat="sweet in placeSweets">
+                    <div class="col01">
+                        <div class="user-img">
+                            <img ng-src="{{sweet.get('receiverPicture') || 'img/avatar.png'}}"/>
+                        </div>
+
+                        <div class="my-text">
+                            <p>
+                                &lt;!&ndash;<span sweetpublic="{{sweetPublic}}">{{sweetPublic.get('gesture')['template']}}</span>&ndash;&gt;
+                                <span sweetpublic="{{sweet}}"></span>
+                                <br/>
+                                <span ng-bind-template="{{ sweet.updatedAt.toRelativeTime() }}"></span>
+                            </p>
+                        </div>
+
+                    </div>
+                </a>
+
+            <div class="clear"></div>
+            </div>-->
+            <!-- -----------------------------------Place Feeds End-------------------------------------- -->
+            <!-- ---------------------------------------------------------------------------------------- -->
+
+
+            <!-- --------------------------------Place Join Request----------------------------- -->
+            <!-- ------------------------------------------------------------------------------- -->
+            <div class="create-a-place col07" ng-show="placeJoin">
+                <input name="" class="create-place-btn-search" type="button" value="Join This Place"
+                       ng-click=addPlace(currentPlace)>
+            </div>
+            <!-- --------------------------------Place Join Request End---------------------------------- -->
+            <!-- ---------------------------------------------------------------------------------------- -->
+
+        </section>
+        <!-- ------------------------------------------------------------------------------- -->
+        <!-- Place Feeds End                                                                -->
+        <!-- ------------------------------------------------------------------------------- -->
+    </div>
+</div>
+
+<!-- -------------------------------------------------------------------------------------- -->
+<!-- Show the send gusture                                                                  -->
+<!-- -------------------------------------------------------------------------------------- -->
+<header class="header" ng-show="showPlaceGestureSendActionsPlace">
+    <div class="heading-title-holder">
+        <span class="heading-title">{{userName}}</span>
+        <em class="heading-sub-title">STARBUCKS</em> </div>
+    <ul class="social-features">
+        <li><a href="#" class="profile-icon"></a></li>
+        <li><a href="#" class="cam-icon"></a></li>
+    </ul>
+</header>
+
+<div class="container_ROW" ng-show="section.sending">
+    <div class="container">
+        <div class="profile-connect">
+            <span class="profile-img-main heart-big-profile">
+                <img
+                    src="images/main-circle-img.png" alt="img"
+                    ng-src='{{magicButtonImage || images/main-circle-img.png}}'
+                    ng-click="navigateToInteraction()"
+                    ondrop="drop(event)" ondragover="allowDrop(event)"
+                    alt="Profile Picture"
+                />
+                <span class="heart-icon heart-big"><i class="icon-heart"></i></span>
+                <!--<div ng-show="section.sending">
+                    <div class="col03"></div>
+                    <div class="col04a" ng-hide="section.sendingPlaceThanks"><span>Thank You</span></div>
+                    <div class="col05" ng-hide="section.sendingPlace">
+                        <img src="images/tick-img.png" width="150" height="138" alt="img">
+                    </div>
+                </div>-->
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="footer_GROUP" ng-show="showPlaceGestureSendActionsPlace">
+    <div class="footer_HOLDER">
+        <div class="profile-connect-bottom">
+            <ul class="submit-holder">
+                <li><a ng-click="cancelSweetPlace(placeInfo)">No Thanks</a></li>
+                <li><a ng-click="sendSweetnessPlaceGesture(placeInfo)" class="send-button">Send</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- -------------------------------------------------------------------------------------- -->
+<!-- Show the send gusture  end                                                                -->
+<!-- -------------------------------------------------------------------------------------- -->
+
+<!-- -------------------------------------------------------------------------------------- -->
+<!-- Show the enter mobile                                                                  -->
+<!-- -------------------------------------------------------------------------------------- -->
+<section ng-show="showmobileActions">
+    <header class="header">
+        <div class="counter rating-countdown">
+            {{counter}}
+        </div>
+        <div class="heading-title-holder">
+            <span class="heading-title">{{userName}}</span>
+            <em class="heading-sub-title">
+                <div ng-repeat="gplace in currentPlace">
+                    {{gplace.get("placeSweetName")}}
+                </div>
+            </em>
+        </div>
+        <ul class="social-features">
+            <li><a href="#" class="profile-icon"></a></li>
+            <li><a href="#" class="cam-icon active"></a></li>
+        </ul>
+    </header>
+
+    <div class="container_ROW">
+        <div class="container">
+            <div class="profile-connect">
+                <span class="profile-img-main bot-40">
+                    <img src="images/profile-pic-1.png" alt="Profile Picture">
+                    <span class="heart-icon"><i class="icon-heart"></i></span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer_GROUP">
+    <div class="footer_HOLDER">
+        <div class="profile-connect-bottom">
+
+            <form method="post" action="#">
+                <fieldset>
+                    <div class="staric-holder">
+                        <span class="star-title">Please rate your experience</span>
+                        <!--<div class="rating-holder">
+                            <a href="#" class="icon-star active"></a>
+                            <a href="#" class="icon-star active"></a>
+                            <a href="#" class="icon-star active"></a>
+                            <a href="#" class="icon-star"></a>
+                            <a href="#" class="icon-star"></a>
+                        </div>-->
+                        <div class="ratingdiv">
+                            <!--Rating is {{rating}} <br/>
+                         <span>Please rate your experience</span>-->
+                            <div star-rating rating-value="rating" max="5" on-rating-selected="saveRatingToServer(rating)"></div>
+                            <!--<rating value="rate" max="10" readonly="isReadonly"></rating>-->
+                        </div>
+                    </div>
+                    <textarea class="feedback-holder" name="comment" id="comment" ng-model="user.comment"
+                              min="7" max="32">
+                        We'd love to read your feedback.
+                    </textarea>
+                    <input type="text" name="mnumber" id="mnumber" placeholder="enter your mobile, email or username to get your receipt"
+                           class="texfield-grey" ng-model="user.mobile" min="7" max="110" required >
+                    <!--<input name="mnumber" id="mnumber" placeholder="enter mobile number" type="tel" ng-model="user.mobile"
+                           type="number" min="7" max="11" ng-pattern="/[0-9]+/" required>
+                           <input name="comment" id="comment" placeholder="    i love this place" type="tel" ng-model="user.comment"
+                   min="7" max="32">-->
+                </fieldset>
+            </form>
+            <ul class="submit-holder">
+                <li><a ng-click="newAuthPlaceCancel()">No Thanks</a></li>
+                <li>
+                    <a ng-disabled="mobileForm.mnumber.$dirty && mobileForm.mnumber.$invalid && !mobileForm.mnumber.$valid"
+                       ng-class="{enable : !mobileForm.mnumber.$invalid , disable : mobileForm.mnumber.$invalid && !mobileForm.mnumber.$valid }"
+                       ng-click="newAuthPlace()" class="send-button">
+                        Send
+                    </a>
+                </li>
+                <!--<a ng-disabled="mobileForm.mnumber.$dirty && mobileForm.mnumber.$invalid && !mobileForm.mnumber.$valid"
+                   ng-class="{enable : !mobileForm.mnumber.$invalid , disable : mobileForm.mnumber.$invalid && !mobileForm.mnumber.$valid }"
+                   ng-click="newAuthPlace()">
+                    OK
+                </a> -->
+            </ul>
+        </div>
+    </div>
+</div>
+</section>
+<!-- -------------------------------------------------------------------------------------- -->
+<!-- -------------------------------------------------------------------------------------- -->

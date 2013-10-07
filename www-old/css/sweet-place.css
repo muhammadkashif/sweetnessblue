@@ -1,0 +1,386 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+/* =============================================================================
+HTML5 element display
+========================================================================== */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+    display: block;
+}
+
+audio, canvas, video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+aside {
+    width: 213px;
+    height: auto;
+    float: left;
+    margin: 0 0 25px 0;
+    border: 1px solid #e8e8e8;
+    border-top: none;
+}
+
+article {
+    width: 690px;
+    height: auto; /*min-height:344px;*/
+    float: left;
+}
+
+section {
+    height: auto;
+}
+
+details {
+    width: 285px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+/* =============================================================================
+Base
+
+========================================================================== */
+/*
+ * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
+ * 2. Force vertical scrollbar in non-IE
+ * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
+ */
+html {
+    font-size: 100%;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+html {
+    font-size: 100%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/main-bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: #eb0577;
+    color: #fff;
+    font-family: 'Helvetica';
+    height: 100%;
+    font-size: 0.5em;
+}
+
+body, button, input, select, textarea {
+    color: #5b5b5b;
+}
+
+/*new classes start responsive*/
+
+.container {
+    width: 100%;
+    background-size: 100% 100%;
+    height: 100%;
+}
+
+.wrapper {
+    min-height: 640px;
+    margin: 0 34.5%;
+    position: relative;
+}
+
+.wrapper-inner {
+    overflow: hidden;
+    padding: 0 0 3.850em 0;
+}
+
+header {
+    width: 100%;
+    float: left;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+header span {
+    text-align: center;
+    font-family: 'HelveticaNeue-Bold';
+    font-size: 2.875em;
+    width: 100%;
+    height: 2.7em;
+    line-height: 2.7em;
+    display: block;
+    color: #fff;
+    text-shadow: 3px 4px 2px #000;
+}
+
+header .search-btn {
+    width: 6.125em;
+    height: 6.125em;
+    top: 0.813em;
+    left: 0.813em;
+    position: absolute;
+}
+
+header .search-btn img {
+    width: 6.125em;
+    height: 6.125em;
+}
+
+/*header .search-btn a {
+    width: 6.125em;
+    height: 6.125em;
+    display: block;
+
+
+}
+
+header .search-btn a:hover {
+    width: 6.125em;
+    height: 6.125em;
+    display: block;
+    background: url(../images/search-btn.png) 0 -98px no-repeat;
+
+}*/
+
+header .header-right-btn {
+    width: 6.125em;
+    height: 6.125em;
+    top: 0.813em;
+    right: 0.813em;
+    position: absolute;
+}
+
+header .header-right-btn img {
+    width: 6.125em;
+    height: 6.125em;
+}
+
+/*
+header .header-right-btn a {
+    display: block;
+     background: url(../images/header-right-btn.png) 0 0 no-repeat;
+
+}
+
+
+header .header-right-btn a:hover {
+    display: block;
+    background: url(../images/header-right-btn.png) 0 -98px no-repeat;
+
+
+}*/
+
+.setting-btn {
+    width: 6.250em;
+    height: 6.188em;
+    top: 0.313em;
+    left: 0.750em;
+    position: absolute;
+}
+
+.setting-btn img {
+    width: 6.250em;
+    height: 6.188em;
+}
+
+.nad-a {
+    position: relative;
+    display: block;
+}
+
+.nad-a .b {
+    display: none;
+    position: absolute;
+    top: 0px;
+}
+
+.nad-a:hover .b {
+    display: block;
+    top: 0px;
+    z-index: 2;
+}
+
+.nad-b:hover .a {
+    display: none;
+}
+
+/*.setting-btn a {
+
+    display: block;
+    background: url(../images/setting-icon.png) 0 0 no-repeat;
+}
+.setting-btn a:hover {
+
+    display: block;
+    background: url(../images/setting-icon.png) 0 -98px no-repeat;
+}*/
+
+.place-btn {
+    width: 6.250em;
+    height: 6.188em;
+    top: 0.313em;
+    right: 0.750em;
+    position: absolute;
+
+}
+
+.place-btn img {
+    width: 6.250em;
+    height: 6.188em;
+
+}
+
+/*.place-btn a {
+
+    display: block;
+    background: url(../images/place-btn.png) 0 0 no-repeat;
+}
+.place-btn a:hover {
+
+    display: block;
+    background: url(../images/place-btn.png) 0 -98px no-repeat;
+}*/
+
+h1 {
+    font-family: 'HelveticaNeue-Bold';
+    font-size: 38px;
+    text-shadow: 3px 3px 3px #000;
+}
+
+h2 {
+    font-family: 'HelveticaNeue-Bold';
+    font-size: 25px;
+    text-shadow: 3px 3px 3px #000;
+}
+
+.top-circle {
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.top-circle img {
+    width: 19.375em;
+    height: 7.188em;
+}
+
+.top-circle-area {
+    position: absolute;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.bottom-area-container {
+    width: 100%;
+    display: table-footer-group;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    z-index: 9999;
+}
+
+.bottom-area {
+    width: 100%;
+}
+
+.bottom-green-btn {
+    margin: 0 auto;
+    width: 19.375em;
+    height: 7.188em;
+}
+
+.bottom-green-btn img {
+    width: 19.375em;
+    height: 7.188em;
+}
+
+.create-a-place {
+    padding: 20px;
+}
+
+.create-a-place h2 {
+    color: #FFFFFF;
+    display: block;
+    font-family: 'HelveticaNeue-Bold';
+    font-size: 50px;
+    text-align: center;
+    text-shadow: 3px 4px 2px #000000;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.create-a-place .col07 input.text-field {
+    background: url("../images/createplace-field-bg-2.jpg") repeat-x scroll 0 0 transparent;
+    border: 2px solid #4C1A4E;
+    box-shadow: 0 3px 0 #CC66A5;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    color: #FFFFFF;
+    font-family: 'HelveticaNeue-Bold';
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000000;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.col07 input.create-place-btn {
+    background: url(../images/circle-bg-h.jpg) repeat-x;
+    border: 3px solid #572060;
+    border-radius: 50px 50px 50px 50px;
+    color: #FFFFFF;
+    font-family: 'HelveticaNeue-Bold';
+    font-size: 20px;
+    height: 50px;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000000;
+    width: 100%;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.gmap {
+    height: 350px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    display: block;
+    border: 2px solid #58002d;
+    margin-top: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}

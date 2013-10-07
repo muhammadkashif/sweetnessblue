@@ -1,0 +1,102 @@
+<!--<div class="wrapper-feeds">-->
+<!--<div class="feeds-area">-->
+
+<section class="main-circle-area">
+
+    <section class="single-user-icon">
+        <a ng-click="showTimeline()"><img src="images/single-user.png" width="94" height="98" alt="user"/>
+        </a>
+    </section>
+
+
+    <section class="main-circle">
+        <img
+                src="images/main-circle-img.png" alt="img"
+                ng-src='{{magicButtonImage || images/main-circle-img.png}}'
+                ng-click="navigateToInteraction()"
+                ondrop="drop(event)" ondragover="allowDrop(event)"
+                class="circle-main-img"
+                />
+
+        <div ng-show="section.sending">
+            <div class="col03"></div>
+            <div class="col04a"><span>{{sweets[0].get('gesture').name}} </span></div>
+            <div class="col05"><img src="images/tick-img.png" width="150" height="138" alt="img"></div>
+        </div>
+
+    </section>
+
+    <section class="group-users-icon">
+        <a ng-click="showFeed()">
+            <img src="images/group-users.png" width="167" height="123" alt="group"
+                    />
+        </a>
+    </section>
+
+
+</section>
+
+<div class="clear"></div>
+
+<a ng-hide="section.sending">
+    <div class="col06 feeds-area-2">
+        <div class="feed-img">
+            <img ng-src="{{sweets[0].get('senderPicture') || 'img/avatar.png'}}"
+                 class="round-image-medium" ng-class="{alignleft: sweet[0].get('senderId')==loggedInUser.id }">
+        </div>
+
+        <div class="text">
+            <p>
+                <!--<span>-->
+                <!--You-->
+                <!--{{sweets[0].get('text') || sweets[0].get('gesture').template}}-->
+                <!--{{sweets[0].get("receiverName").split(" ")[0]}}-->
+                <!--</span>-->
+                <span sweet="{{sweets[0]}}"></span>
+            </p>
+        </div>
+
+    </div>
+</a>
+
+<!--</div>-->
+<!--</div>-->
+
+<!--<section id="recent-sweet">-->
+<!--<div class="well-small">-->
+<!--<img style="width:48px;height:48px;margin-right:8px" ng-src="{{sweet.get('senderPicture') || 'img/avatar.png'}}"-->
+<!--class="round-image-medium alignleft">-->
+<!--<span class="well-small">-->
+<!--{{sweetPerson(sweets[0].get("senderName"))}}-->
+<!--You&nbsp;-->
+<!--{{sweets[0].get('text') || sweets[0].get('gesture').template}}-->
+<!--&nbsp;{{sweets[0].get("receiverName")}}-->
+<!--</span>-->
+<!--</div>-->
+<!--</section>-->
+
+
+<!--<section id="sweets-button-bottom" style="margin-top:20px">-->
+<!--<div ng-click="navToFriend()" class="halfCircle">-->
+<!--</div>-->
+<!--</section>-->
+
+<!--<section id="people-search-box" ng-show="section.showPeopleSearchBox">-->
+<!--<input type="text" placeholder="start writing or drag in a person"-->
+<!--ng-model="friendSearchText" ng-change="friendSearch(friendSearchText)"/>-->
+<!--</section>-->
+
+<!--<section id="magic-box">-->
+<!--<img id="me" ng-src="img/Me.png"/>-->
+<!--<img id="magic-button" class="round-image"-->
+<!--ng-src='{{magicButtonImage || newSweet.senderPicture}}'-->
+<!--ng-click="showFriendInteraction()"-->
+<!--ondrop="drop(event)" ondragover="allowDrop(event)"-->
+<!--/>-->
+<!--<img id="people" src="img/People.png" ng-click="showPeople()"/>-->
+<!--</section>-->
+
+
+
+
+

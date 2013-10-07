@@ -1,0 +1,100 @@
+<section class="wrapper-feeds-place">
+    <header ng-show="isUserLoggedIn">
+
+    <span class="top-heading">
+         Sweet Coffee Shop
+    </span>
+
+    <span class="top-subheading">
+        Love your barista?
+    </span>
+
+    <span class="top-thank">
+        Say Thank You!
+    </span>
+
+    </header>
+
+    <div class="clear"></div>
+
+    <section class="place-area">
+        <section class="place-slide-images">
+            <ul class="image-gallery-place">
+                <li ng-repeat="allfriend in placeFriends">
+                    <div class="frnd-image">
+                        <img tap ng-src="{{allfriend['picture']}}"
+                             title="{{allfriend['name']}}"
+                             ng-click="sendSweetPlace(allfriend)"
+                             friend="{{allfriend}}"
+                                />
+                    </div>
+                    <span>{{allfriend['name']}}</span>
+                </li>
+            </ul>
+            <section>
+            </section>
+            <!--
+            <section class="top-circle-area">
+                <section class="circle-{{$index+1}}" ng-repeat="gesture in gestures[0].sub_actions">
+                    <a ng-click="updateGestures(gesture)">
+                        <span data-ng-bind-html="gesture.name"></span>
+                    </a>
+                </section>
+            </section>
+
+            <div class="clear"></div>
+
+            <section class="main-circle-area">
+
+                <section class="main-circle">
+                    <img
+                    src="images/main-circle-img.png" alt="img"
+                    ng-src='{{magicButtonImage}}'
+                    ng-click="navigateToInteraction()"
+                    ondrop="drop(event)" ondragover="allowDrop(event)"
+                    class="circle-main-img"
+                    />
+                    <div ng-show="showGestureSendActions">
+                        <div class="col03"> </div>
+                        <div class="col04"><span data-ng-bind-html="newSweet.gesture.name"></span></div>
+                    </div>
+
+                </section>
+
+
+            </section>
+
+            <div class="clear"></div>
+
+            <div class="col02" ng-show="showGestureSendActions">
+                <div class="cancel-btn"> <a ng-click="cancelGestureAction()">Cancel</a></div>
+                <div class="send-btn"> <a ng-click="sendSweetness()">Send</a> </div>
+
+            </div>
+
+            -->
+
+
+            <!--<section ng-show="showGestureSendActions">-->
+            <!--<button ng-click="showPeople()">Cancel</button>-->
+            <!--<button ng-click="sendSweetness()">Send</button>-->
+            <!--</section>-->
+
+            <!--<section id="magic-box">-->
+            <!--<img id="me" ng-src="img/Me.png"/>-->
+            <!--<img id="magic-button" class="round-image"-->
+            <!--ng-src='{{magicButtonImage || newSweet.senderPicture}}'-->
+            <!--ng-click="showFriendInteraction()"-->
+            <!--ondrop="drop(event)" ondragover="allowDrop(event)"-->
+            <!--/>-->
+            <!--<img id="people" src="img/People.png" ng-click="showPeople()"/>-->
+            <!--</section>-->
+
+
+            <!--<section id="sweets-button-bottom">-->
+            <!--<div ng-click="navToFriend()" class="halfCircle">-->
+            <!--</div>-->
+            <!--</section>-->
+
+        </section>
+

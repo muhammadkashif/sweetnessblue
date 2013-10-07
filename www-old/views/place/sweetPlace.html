@@ -1,0 +1,138 @@
+<div class="clear"></div>
+<div class="place-2-area-2">
+
+    <section ng-include="'views/place/placeHeader.html'"></section>
+</div>
+<div class="clear"></div>
+<!-- ------------------------ Seach Panel ------------------------------------------ -->
+<section>
+    <div class="name-field-2">
+        <input id="searcField" type="text" placeholder="Enter a person or place"
+               ng-model="section.friendSearchText"
+               autofocus="autofocus"
+               autocorrect="off"
+                />
+    </div>
+</section>
+
+<div class="clear"></div>
+
+<!--<section class="feeds-area-search" ng-show="section.friendSearchText">
+    <div ng-repeat="friend in friends | filter:section.friendSearchText">
+        <div class="col01">
+            <div class="user-img">
+                <img tap ng-src="{{friend['picture']['data']['url']}}"
+                     title="{{friend['name']}}"
+                     ng-click="searchFriend(friend)"
+                        />
+            </div>
+
+            <div class="my-text">
+                <p data-ng-bind="friend.name"
+                   ng-click="searchFriend(friend)"></p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="clear"></div>
+
+<section class="feeds-area-search" ng-show="section.friendSearchText">
+
+    <div ng-repeat="place in places | filter:section.friendSearchText">
+        <div class="col01">
+            <div class="user-img">
+                <img ng-src="{{place.get('placeImg') || 'img/avatar.png'}}"
+                     title="{{place.get('placeName')}}"
+                     ng-click="myPlaceDetail(place)"   />
+            </div>
+
+            <div class="my-text">
+                <p  ng-bind-template="{{place.get('placeName')}}"
+                    ng-click="myPlaceDetail(place)"></p>
+            </div>
+            <span sweetplace="{{place}}"></span>
+        </div>
+
+    </div>
+
+</section>-->
+<!-- ------------------------ Seach Panel End ------------------------------------------ -->
+
+<!-- ------------------------ friend Panel ------------------------------------------ -->
+<div class="clear"></div>
+<section class="gallery-area-place-2" ng-hide="latestSweet && latestSweet.id">
+    <section class="slide-images" id="friends-list" ng-hide="showGestureSendActions">
+        <ul class="image-gallery">
+            <li ng-repeat="friend in friends | shuffle | filter:section.friendSearchText | startFrom:currentPage*pageSize | limitTo:pageSize">
+
+                <img tap ng-src="http://graph.facebook.com/{{friend['id']}}/picture?width=200&height=200"
+                     title="{{friend['name']}}"
+                     ng-click="friendSent(friend)"
+
+                     next="nextPage()" prev="prevPage()"
+                     friend="{{friend}}"
+                        />
+            </li>
+        </ul>
+    </section>
+    <div class="clear"></div>
+</section>
+<!-- ------------------------ friend Panel End ------------------------------------------ -->
+
+
+<!-- ------------------------ Place Panel ------------------------------------------ -->
+
+<!--<div class="clear"></div>
+<section class="gallery-area-placelist">
+    <section class="slide-images" id="friends-list" ng-hide="showGestureSendActions">
+        <ul class="image-gallery">
+            <li ng-repeat="uPlaces in listPlaces | startFrom:currentPage*pageSize | limitTo:pageSize">
+
+                <img ng-src="{{uPlaces.get('placeImg') || 'images/place-avatar-2.png'}}"
+                     title="{{uPlaces.get('placeName')}}"
+                     ng-click="myPlaceDetail(uPlaces)"
+                     next="nextPage()" prev="prevPage()"
+                     friend="{{uPlaces}}"
+                        />
+            </li>
+        </ul>
+    </section>
+    <div class="clear"></div>
+</section>-->
+
+<div class="clear"></div>
+<section class="gallery-area-placelist">
+    <section class="slide-images-place" id="place-list" ng-hide="section.friendSearchText">
+        <ul class="image-gallery">
+            <li ng-repeat="uPlaces in listPlaces | startFrom:currentPagePlace*pageSize | limitTo:pageSize">
+
+                <img tapplace ng-src="{{uPlaces.get('icon') || 'images/place-avatar-2.png'}}"
+                     title="{{uPlaces.get('placeName')}}"
+                     ng-click="myPlaceDetail(uPlaces)"
+
+                     next="nextPage_place()" prev="prevPage_place()"
+                     Place="{{uPlaces}}"
+                        />
+            </li>
+        </ul>
+    </section>
+    <section class="slide-images-place" id="place-list" ng-show="section.friendSearchText">
+        <ul class="image-gallery">
+            <li ng-repeat="place in places | filter:section.friendSearchText | startFrom:currentPage*pageSize | limitTo:pageSize">
+
+                <img tap ng-src="{{place.get('icon') || 'images/place-avatar-2.png'}}"
+                     title="{{place.get('placeName')}}"
+                     ng-click="myPlaceDetail(place)"
+
+                     next="nextPage_place()" prev="prevPage_place()"
+                     Place="{{place}}"
+                        />
+            </li>
+        </ul>
+    </section>
+    <div class="clear"></div>
+</section>
+
+<!-- ------------------------ Place Panel End ------------------------------------------ -->

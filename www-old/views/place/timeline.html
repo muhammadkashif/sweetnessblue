@@ -1,0 +1,53 @@
+<div class="clear"></div>
+<div class="place-2-area">
+    <section ng-include="'views/place/placeHeader.html'"></section>
+
+    <div flipplace leftPage="/place/friend" rightPage="/place/feed">
+        <div class="feeds-area-place">
+            <!-- If want horizental scrolling uncomment below line -->
+            <!--<a tapinter ng-repeat="sweet in timelines | startFrom:currentPageInteraction*pageSize | limitTo:pageSize">-->
+            <a ng-repeat="sweet in timelines.sortByProp('updatedAt')">
+                <div class="col01">
+                    <div class="user-img">
+                        <img ng-src="{{sweet.get('senderPicture') || 'img/avatar.png'}}"/>
+                    </div>
+
+                    <div class="my-text">
+                        <p>
+                            <!--<span ng-bind-template="-->
+                            <!--{{sweetPerson(sweet)}}-->
+                            <!--{{sweet.get('text') || sweet.get('gesture').template}}-->
+                            <!--{{sweetPersonMe(sweet)}}">-->
+                            <!--</span>-->
+                            <span sweet="{{sweet}}"></span>
+                            <br/>
+                            <span ng-bind-template="{{ sweet.updatedAt.toRelativeTime() }}"></span>
+
+
+                        </p>
+                    </div>
+
+                </div>
+            </a>
+
+            <a ng-repeat="follow in timelinesfollow.sortByProp('updatedAt')">
+                <div class="col01">
+                    <div class="user-img">
+                        <img ng-src="{{follow.get('receiverPicture') || 'img/avatar.png'}}"/>
+                    </div>
+
+                    <div class="my-text">
+                        <p>
+                            <span sweetpublic="{{follow}}"></span>
+
+                            <br/>
+                            <span ng-bind-template="{{ follow.updatedAt.toRelativeTime() }}"></span>
+                        </p>
+                    </div>
+
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>

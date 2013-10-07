@@ -1,0 +1,46 @@
+<div class="show-place">
+
+    <h2>{{currentPlace.get("placeName")}}</h2>
+    <span>{{currentPlace.get("placeDesc")}}</span>
+    <span>{{currentPlace.get("placeSweetName")}}</span>
+
+    <div class="col08">
+        <!--<div class="choose-picture"> <img src="images/place-user-image.jpg"   alt="img"></div>-->
+        <div class="choose-location">
+
+            <div class="google-map"
+                 center="centerProperty"
+                 zoom="zoomProperty"
+                 markers="markersProperty"
+                 latitude="clickedLatitudeProperty"
+                 longitude="clickedLongitudeProperty"
+                 mark-click="true"
+                 draggable="true"
+                 style="height: 300px; width: 800px;">
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+
+<section class="gallery-area-place" ng-hide="latestSweet && latestSweet.id">
+    <section class="slide-images" id="friends-list" ng-hide="showGestureSendActions">
+        <ul class="image-gallery">
+            <li ng-repeat="uplace in usersInPlaces | startFrom:currentPage*pageSize | limitTo:pageSize">
+
+                <img tap ng-src="http://graph.facebook.com/{{uplace.get('userID')}}/picture?width=200&height=200"
+                     title="{{uplace.get('userName')}}"
+                     ng-click="setPlaceSweet(uplace)"
+
+                     next="nextPage()" prev="prevPage()"
+                     friend="{{uplace}}"
+                        />
+            </li>
+        </ul>
+    </section>
+    <div class="clear"></div>
+</section>
+<div class="create-a-place col07">
+    <input name="" class="create-place-btn" type="button" value="Join This Place" ng-click=addPlace(currentPlace)>
+</div>

@@ -1,0 +1,110 @@
+<div class="clear"></div>
+<div class="place-feeds">
+    <section ng-include="'views/place/placeHeader.html'"></section>
+    <!--<div class="place-top-icons">
+
+        <ul>
+            <li>
+                <img src="images/user-icon-2.png" width="187" height="187" alt="usericon">
+
+            </li>
+            <li>
+                <a ng-click="navigateToSweetPlace()">
+                    <img src="images/groupicon-2.png" width="187" height="187" alt="group">
+                </a>
+            </li>
+            <li>
+                <a ng-click="showPlaceNew()">
+                    <img src="images/place-icon.png" width="187" height="187" alt="place">
+                </a>
+            </li>
+        </ul>
+
+
+    </div>-->
+    <div class="feeds-area-place">
+
+        <!--<a ng-repeat="joinReqPlaces in userPlacesJoinReq">
+        <div class="col01">
+          <div class="feed-img"> <img ng-src="{{joinReqPlaces.get('placeImg') || 'images/place-avatar.png'}}"
+                           title="{{joinReqPlaces.get('placeName')}}"
+                           ng-click="myPlaceDetail(joinReqPlaces)"   /> </div>
+          <div class="my-text">
+            <p> <span  ng-bind-template="{{joinReqPlaces.get('userName')}} wants to join {{joinReqPlaces.get('placeSweetName')}}"
+                                         ng-click="myPlaceDetail(joinReqPlaces)"></span> </p>
+            <span sweetplace="{{uPlaces}}"></span> </div>
+        </div>
+        </a>-->
+
+        <a href="#">
+            <div class="col01">
+                <div class="feed-img-create">
+                    <!--<a href="#/place/createSweetPlace">-->
+                    <a ng-click="createSweetPlace()">
+                        <img src="images/create-icon.png" width="356" height="356" alt="create">
+                    </a>
+                </div>
+                <div class="my-text">
+                    <p><span>Create a new place</span> <br>
+                        Help others give gratitude</p>
+                </div>
+            </div>
+        </a>
+        <a ng-repeat="uPlaces in userPlaces">
+            <div class="col01">
+                <div class="feed-img"><img ng-src="{{uPlaces.get('icon') || 'images/place-avatar-2.png'}}"
+                                           title="{{uPlaces.get('placeName')}}"
+                                           ng-click="myPlaceProfile(uPlaces)"/></div>
+                <div class="my-text">
+                    <p>
+                        <!--<span  ng-bind-template="{{uPlaces.get('placeName')}}" ng-click="myPlaceProfile(uPlaces)"></span>-->
+                        <span ng-click="myPlaceProfile(uPlaces)">{{uPlaces.get('placeName').split(",")[0]}}</span>
+                        <br/>
+                        <span class="address">{{uPlaces.get('address')}}</span>
+                    </p>
+                </div>
+                <span sweetplace="{{uPlaces}}"></span>
+            </div>
+        </a>
+
+        <!--<a href="#">
+            <div class="col01">
+                <div class="feed-img">  <img src="images/place-avatar.png" width="356" height="356" alt="place"></div>
+                <div class="text">
+                    <p> <span>Meeting Charles at Philz.</span> <br>
+                        7pm on Monday in San Jose.</p>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="col01">
+                <div class="feed-img"> <img src="images/place-avatar.png" width="356" height="356" alt="place"></div>
+                <div class="text">
+                    <p> <span>Meeting Charles at Philz.</span> <br>
+                        7pm on Monday in San Jose.</p>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="col01">
+                <div class="feed-img"> <img src="images/place-avatar.png" width="356" height="356" alt="place"></div>
+                <div class="text">
+                    <p> <span>Meeting Charles at Philz.</span> <br>
+                        7pm on Monday in San Jose.</p>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="col01">
+                <div class="feed-img"> <img src="images/place-avatar.png" width="356" height="356" alt="place"></div>
+                <div class="text">
+                    <p> <span>Meeting Charles at Philz.</span> <br>
+                        7pm on Monday in San Jose.</p>
+                </div>
+            </div>
+        </a>-->
+
+    </div>
+
+</div>
+<div class="clear"></div>

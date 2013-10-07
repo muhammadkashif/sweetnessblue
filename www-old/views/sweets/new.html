@@ -1,0 +1,168 @@
+<div class="well" xmlns="http://www.w3.org/1999/html">
+
+    <section id="#greeting">
+        Hi {{userFirstName()}}!<h4>Thinking of someone?
+        <!--</br><a href="#/contacts/import" title="Import contacts">add new contact </a>-->
+      <span class="pull-right">
+        <i style="padding:0;margin:0.8" class="icon-arrow-left" ng-disabled="currentPage == 0"
+           ng-click="prevPage()"></i>
+          <i style="padding:0;margin:0.8" class="{{toggleAvatarIcon}}" ng-click="toggleAvatar()"></i>
+          <i style="padding:0;margin:0.8" ng-disabled="currentPage >= userSweets.length/pageSize - 1"
+             ng-click="nextPage()"
+             class="icon-arrow-right">
+          </i>
+      </span>
+    </h4>
+    </section>
+
+    <section id="newSweet">
+
+        <form name="newSweetForm" class="form">
+            <fieldset>
+                <legend></legend>
+
+                <section id="#avatar" class="" align="center">
+          <span ng-repeat="interaction in userSweets | startFrom:currentPage*pageSize | limitTo:pageSize">
+              <button class="" style="padding: 2px 1px 1px 8px; margin-bottom: 8px;background-color:#3ac6f3">
+                  <img ng-style='{"background": interaction.get("avatar") }'
+                       ng-src="{{interaction.get('receiverAvatar') || 'img/avatar.png'}}"
+                       class="img-polaroid" style="width:48px;height:48px;"
+                       ng-click="setReceiver(interaction)">
+
+                  <img ng-show="interaction.get('event')" ng-src="img/events/{{interaction.get('event')}}.png"
+                       class="event-img-overlay">
+                  <img ng-show="!interaction.get('event')" ng-src="" class="event-img-overlay"
+                       style="visibility:hidden">
+
+                  <br/>
+                  <a style="color:#e21d41" href="" ng-click="showInteraction(interaction)">{{interaction.get("receiverName").split("
+                      ")[0]}}</a>
+              </button>
+          </span>
+                </section>
+
+                <div id="#sweet-gesture-btn-group" class="new-sweet-section" align="center">
+                    <div class="inner-sweet-btn-group">
+                        <!-- <div class="btn-group row-fluid"> -->
+                        <button class="sweet-gesture-btn btn sweet-btn-gesture event-button"
+                                ng-click="setGesture('sayThankYou')" ng-model="newSweet.gestureType">Say Thankyou
+                        </button>
+                        <button class="sweet-gesture-btn btn sweet-btn-gesture event-button"
+                                ng-click="setGesture('sendAHello')" ng-model="newSweet.gestureType">Send a Hello
+                        </button>
+                        <button class="sweet-gesture-btn btn sweet-btn-gesture event-button"
+                                ng-click="setGesture('sendGreetings')" ng-model="newSweet.gestureType">Share a Greeting
+                        </button>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
+                <section id="#gestureInputFields">
+                    <label></label>
+                    <!--TODO: no spell check?-->
+                    <div class="controls">
+                        <!--<input required class="input-xxlarge" id="friends" type="text" placeholder="Please enter a friend's name" typeahead-model="newSweet.receiverName" value="" autofocus="autofocus">-->
+                        <!--<div ng-controller="ContactCtrl">-->
+                        <!--<input typeahead source="source" emails="emails" typeahead-Model="selected">-->
+                        <!--</div>-->
+                        <!--ng-controller="ContactCtrl" typeahead source="source" emails="emails" typeahead-Model="newSweet.receiverPhone"-->
+                        <input
+                                style="margin: 2px" required class="input-block-level" id="friends" type="text"
+                                placeholder="Enter a name" ng-model="newSweet.receiverName" value="">
+                    </div>
+                    <div class="controls">
+                        <input style="margin: 2px" required class="input-block-level" type="text"
+                               placeholder="Enter an email or number" ng-model=newSweet.receiverPhone>
+                    </div>
+
+                    <div class="controls">
+                        <textarea id="gestureText" style="margin: 2px" rows="3" class="input-block-level" required
+                                  id="sweetText" ng-model=newSweet.text
+                                  placeholder='Thinking of you and sending you much sweetness!'></textarea>
+                    </div>
+
+
+                    <!--<div class="controls">-->
+                    <input type="hidden" required class="input-xxlarge" placeholder="Please enter your name"
+                           ng-model=newSweet.senderName value="">
+                    <input type="hidden" required class="input-xxlarge" type="text"
+                           placeholder="Please enter your phone number or email" ng-model=newSweet.senderPhone value="">
+                    <!--</div>-->
+                </section>
+
+                <!--<div class="controls">-->
+                <!--<a  href="" ng-click="setSweetExpression('picture')"><i class="icon-camera icon-white" ng-model=newSweet.picture></i></a>-->
+                <!--<a  href="" ng-click="setSweetExpression('star')"><i class="icon-star icon-white" ng-model=newSweet.star></i> </a>-->
+                <!--<a  href="" ng-click="setSweetExpression('heart')"><i class="icon-heart icon-white" ng-model=newSweet.heart></i> </a>-->
+
+                <!--<span class='pull-right'>-->
+                <!--<a ng-click="setSweetExpression('picture')" ng-show=newSweet.picture href="" class="btn btn-primary"><img height="24px" width="24px" ng-src="{{newSweet.picture.url}}"></i>-->
+                <!--<button type="button" class="close" data-dismiss="alert">×</button></a>-->
+                <!--<a ng-click="setSweetExpression('star')" ng-show=newSweet.star href="" class="btn btn-warning"><i class="icon-star icon-white"></i>-->
+                <!--<button type="button" class="close" data-dismiss="alert">×</button></a></a>-->
+                <!--<a ng-click="setSweetExpression('heart')" ng-show=newSweet.heart href="" class="btn btn-danger"><i class="icon-heart icon-white"></i>-->
+                <!--<button type="button" class="close" data-dismiss="alert">×</button></a></a>-->
+                <!--</span>-->
+                <!--</div>-->
+                <!--<div><input type="file" class="input-file" ng-show="uploadPicture"></div>-->
+                <!--<p fileselect="" swfile="newSweet.picture.url"></p>-->
+                <!--<p>{{ temp }}</p>-->
+                <!--<fileSelect></fileSelect>-->
+                <!--<input ng-model="file" type="file" name="gesturePictureSelect1" id="gesturePictureSelect1">-->
+                <!--<input id="gesturePictureUploadButton" type="button" value="Upload to Parse" ng-click="uploadToParse()">-->
+
+
+                <!--<div class="controls">-->
+                <!--</div>-->
+
+                <h4>
+                    <img ng-show=newSweet.receiverName ng-style='{"background": newSweet.receiverAvatar }'
+                         class="img-polaroid" ng-src="{{newSweet.receiverAvatar}}" style="width:50px;height:50px;">
+                    <!--<span>-->
+                    {{newSweet.receiverName}}
+                </h4>
+
+                <section id="#preview" class="well"
+                         style="background: url('{{newSweet.greetingBackground || 'img/greetings/White-Default.png'}}');margin-bottom:10px"
+                         ng-click="setGreetingBackground()">
+                  <span ng-click="changeFontColor();$event.stopPropagation()"
+                        style="color:{{newSweet.fontColor || '#000000'}};"
+                        ng-model="newSweet.fontColor">{{newSweet.text || 'Thinking of you and sending you much sweetness!'}}
+                  </span>
+                  <span class="pull-right">
+                    <a ng-click="setSweetExpression('star');$event.stopPropagation()" ng-model=newSweet.star
+                       href=""><img height="32px" width="32px" ng-src="{{newSweet.starImage}}"></a>
+                    <a ng-click="setSweetExpression('heart');$event.stopPropagation()" ng-model=newSweet.heart
+                       href=""><img height="32px" width="32px" ng-src="{{newSweet.heartImage}}"></a>
+                  </span>
+                    <br/><br/>
+                </section>
+                <!-- <div>
+                    <i style="margin-bottom:19px;padding: 0" class="icon-font pull-right"></i>
+                </div> -->
+
+
+                <!--<div class='pull-right'>-->
+                <!--&lt;!&ndash;<a ng-click="setSweetExpression('picture')" ng-show=newSweet.picture href="" ><img class="img-polaroid" height="32px" width="32px" ng-src="{{newSweet.picture.url}}"></i>&ndash;&gt;
+                -->
+                <!--&lt;!&ndash;<a ng-click="setSweetExpression('picture')" href="" class="fileupload-preview"><img class="img-polaroid" height="32px" width="32px" ng-src="{{newSweet.picture.url}}"></i>&ndash;&gt;
+                -->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--<a ng-click="setSweetExpression('star')" ng-show=newSweet.star href=""><span class="add-on" style="font-size: 32px"><i class="add-on iconic-star icon-large"></i></span>-->
+                <!--</a>-->
+                <!--<a ng-click="setSweetExpression('heart')" ng-show=newSweet.heart href=""><span class="add-on" style="font-size: 32px"><i class="add-on iconic-heart-stroke icon-white"></i></span>-->
+                <!--</a>-->
+                <!--</div>-->
+                <!--<br/> <br/>-->
+
+                <section id="#sendSweetnessButton" class="row-fluid">
+                    <button style="margin: 0" id="sendSweet" class="btn btn-primary span12" ng-click="sendSweet()"
+                            ng-disabled="newSweetForm.$invalid">
+                        <span class="btn-label">Send Sweetness</span>
+                    </button>
+                </section>
+
+            </fieldset>
+        </form>
+    </section>
+</div>

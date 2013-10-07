@@ -1,0 +1,158 @@
+<div class="alert alert-info" ng-show="info.title">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    {{info.title}}
+</div>
+
+<div class="well">
+    Hi {{currentUser().get("first_name")}}!<h4>Thinking of someone?</h4>
+    <a class="btn btn-large btn-primary" href="#" ng-model="sendSweetnessButton" ng-click="toggleSendSweetnessButton()"
+       ng-show="sendSweetnessButton">
+        <span class="btn-label">Give thanks to a good friend!</span>
+    </a>
+
+    <section id="newSweet" ng-hide="sendSweetnessButton">
+        <!--<div class="alert alert-block">-->
+        <!--<h4>Give Thanks</h4>-->
+        <!--Send a sweet gesture-->
+        <!--</div>-->
+        <!--<div class="btn-group" data-toggle="buttons-radio">-->
+        <!--<button type="button" class="btn btn-primary" ng-click="setGesture('sayThankYou')">Say Thank You</button>-->
+        <!--<button type="button" class="btn btn-primary" ng-click="setGesture('sendAHello')">Send a Hello</button>-->
+        <!--<br/><br/>-->
+        <!--<button type="button" class="btn btn-primary" ng-click="setGesture('meetAFriend')">Meet a Friend</button>-->
+        <!--<button type="button" class="btn btn-primary" ng-click="setGesture('sendGreetings')">Send Greetings</button>-->
+        <!--</div>-->
+
+        <form name="sweet-form" novalidate>
+            <div class="controls">
+                <!--<input data-source="friends" typeahead="" required class="input-xxlarge" id="friends" type="text" placeholder="Please enter a friend's name" typeahead-model="sweet.toName" value="" autofocus="autofocus">-->
+                <input required class="input-xxlarge" id="friends" type="text"
+                       placeholder="Please enter a friend's name" typeahead-model="sweet.toName" value=""
+                       autofocus="autofocus">
+            </div>
+
+            <div class="controls">
+                <div ng-switch on="sweet.deliveryType">
+                    <input required class="input-xxlarge" ng-switch-when="SMS" type="tel"
+                           placeholder="Please enter a friend's number" ng-model=sweet.toNumber>
+                    <input required class="input-xxlarge" ng-switch-when="email" type="email"
+                           placeholder="Please enter a friend's email" ng-model=sweet.toNumber>
+                    <input required class="input-xxlarge" ng-hide="1==1" ng-switch-when="facebookMessage" type="email"
+                           placeholder="Please enter a facebook friend's name" ng-model=sweet.toNumber>
+                    <input required class="input-xxlarge" ng-switch-default type="tel"
+                           placeholder="Please enter a friend's number" ng-model=sweet.toNumber>
+                </div>
+            </div>
+
+            <div class="btn-group" data-toggle="buttons-radio" ng-model="deliveryType">
+                <!--<button type="button" class="btn btn-primary active" ng-click="setDeliveryType('facebookMessage')">Facebook Post</button>-->
+                <button type="button" class="btn btn-primary active" ng-click="setDeliveryType('SMS')">SMS</button>
+                <button type="button" class="btn btn-primary" ng-click="setDeliveryType('email')">Email</button>
+            </div>
+
+            <br/>
+
+            <div class="controls">
+                <textarea id="sweetText" ng-model=sweet.text class="input-xxlarge"></textarea>
+            </div>
+
+
+            <!--TODO: Change placeholder based on the delivery type-->
+
+            <input class="input-xxlarge" type="hidden" placeholder="Please enter your email" ng-model=sweet.fromName
+                   value="">
+
+            <div ng-switch on="sweet.deliveryType">
+                <input required class="input-xxlarge" ng-switch-when="SMS" type="tel"
+                       placeholder="Please enter your phone number" ng-model=sweet.fromNumber>
+                <input required class="input-xxlarge" ng-switch-when="email" type="email"
+                       placeholder="Please enter your email" ng-model=sweet.fromNumber>
+                <input required class="input-xxlarge" ng-hide="1==1" ng-switch-when="facebookMessage" type="email"
+                       placeholder="To Email" ng-model=sweet.toNumber>
+                <input required class="input-xxlarge" ng-switch-default type="tel"
+                       placeholder="Please enter your phone number" ng-model=sweet.fromNumber>
+            </div>
+            <div class="controls">
+                <button ng-disabled="sweet-form.$invalid" href="#" id="sendSweet" class="btn btn-large btn-primary"
+                        ng-click="sendSweet()" data-deliveryType={{sweet.deliveryType}}>
+                    <span ng-disabled="sweet-form.$invalid" class="btn-label">Send Sweetness</span>
+                </button>
+            </div>
+            <!--<div ng-switch on="sweet.deliveryType" >-->
+            <!--<button ng-switch-when="facebookMessage" id="sendSweet" class="btn btn-success" ng-click="sendSweet()">Send Sweetness</button>-->
+            <!--<button ng-switch-default type="facebookMessage" id="defaultSweet" class="btn btn-success" ng-click="sendSweet()">Send Sweetness</button>-->
+            <!--</div>-->
+            <!--<span ng-show="sweet.toName">to</span> {{sweet.toName}}-->
+        </form>
+    </section>
+</div>
+
+<!--</div>-->
+<h4><span ng-show="currentUser()"> {{currentUser().get("first_name")}}'s </span>Sweet Collection</h4>
+<section id="sweets1">
+    <!--&lt;!&ndash;{{sweets}}&ndash;&gt;-->
+    <!--<ul class="unstyled">-->
+    <!--<div ng-repeat="sweet in sweets" class="well">-->
+    <!--&lt;!&ndash;<div class="alert-success" align="center">{{sweet.get("fromName")}}</div>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;Sweet&ndash;&gt;-->
+    <!--<li>-->
+    <!--<span>-->
+    <!--<img class="img-polaroid" src="{{getImage(sweet.get('fromName'))}}" height="25px" width="25px">-->
+    <!--{{sweet.get("fromName")}}  <a href="#" ng-click="reply(sweet)">Reply</a>-->
+    <!--<h4>{{sweet.get("text")}}</h4>-->
+
+    <!--</span>-->
+    <!--&lt;!&ndash;TODO: {{sweet.createdAt}}&ndash;&gt;-->
+    <!--&lt;!&ndash;Sweet Replies&ndash;&gt;-->
+    <!--<div ng-repeat="reply in sweet.get('replies')">-->
+    <!--<img class="img-polaroid" src="{{getImage(reply.senderName)}}" height="25px" width="25px">-->
+    <!--{{reply.senderName || "unknown"}}-->
+    <!--<h4>{{reply.text}}</h4>-->
+    <!--</div>-->
+
+    <!--</li>-->
+    <!--</div>-->
+    <!--</ul>-->
+
+</section>
+
+<!--TODO: Use ngSrc to load images-->
+
+<section id="sweets">
+    <ul class="unstyled">
+        <div ng-repeat="token in tokens" class="well">
+            {{getSweets(token)}}
+            <a href="#" ng-click="showSweet(token)">{{token}}</a>
+
+            <ul class="unstyled">
+                <div ng-repeat="sweet in sweets" class="well">
+                    <!--<div class="alert-success" align="center">{{sweet.get("fromName")}}</div>-->
+
+                    <!--Sweet-->
+                    <li>
+                        {{sweet.get("toName")}}
+        <span>
+        <img class="img-polaroid" ng-src="img/avatar.png" height="25px" width="25px">
+        {{sweet.get("fromName")}}  <a href="#" ng-click="reply(sweet)">Reply</a>
+        <h4>{{sweet.get("text")}}</h4>
+
+        </span>
+                        <!--TODO: {{sweet.createdAt}}-->
+                        <!--Sweet Replies-->
+                        <div ng-repeat="reply in sweet.get('replies')">
+                            <img class="img-polaroid" ng-src="img/avatar.png" height="25px" width="25px">
+                            {{reply.senderName || "unknown"}}
+                            <h4>{{reply.text}}</h4>
+                        </div>
+
+                    </li>
+                </div>
+            </ul>
+
+
+        </div>
+    </ul>
+
+</section>
+

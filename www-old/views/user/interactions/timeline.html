@@ -1,0 +1,63 @@
+<!--<h3>Timeline</h3>-->
+<div flip leftPage="/sweet/friend" rightPage="/sweet/feed">
+    <div class="feeds-area">
+
+
+        <a ng-repeat="sweet in timelines.sortByProp('updatedAt')">
+            <div class="col01">
+                <div class="user-img">
+                    <img ng-src="{{sweet.get('senderPicture') || 'img/avatar.png'}}"/>
+                </div>
+
+                <div class="my-text">
+                    <p>
+                        <!--<span ng-bind-template="-->
+                        <!--{{sweetPerson(sweet)}}-->
+                        <!--{{sweet.get('text') || sweet.get('gesture').template}}-->
+                        <!--{{sweetPersonMe(sweet)}}">-->
+                        <!--</span>-->
+                        <span sweet="{{sweet}}"></span>
+                        <br/>
+                        <span ng-bind-template="{{ sweet.updatedAt.toRelativeTime() }}"></span>
+
+
+                    </p>
+                </div>
+
+            </div>
+        </a>
+
+
+    </div>
+</div>
+
+
+<!--Timeline-->
+<!--<section id="sweets-button">-->
+<!--<div ng-click="navToFriend()" class="halfCircleBottom">-->
+<!--</div>-->
+<!--</section>-->
+
+<!--<div class="wrapper-feeds">-->
+
+<!--</div>-->
+
+<!--<div ng-repeat="sweet in sweets.sortByProp('updatedAt')">-->
+<!-- <div> -->
+<!--<h4 style="display:inline">-->
+<!--<a href="" ng-click="respondToSweet(sweet)">-->
+<!--<div class="well-small">-->
+<!--<img style="width:48px;height:48px;margin-right:8px" ng-src="{{sweet.get('senderPicture') || 'img/avatar.png'}}"-->
+<!--class="round-image-medium" ng-class="{alignright: sweet.get('senderId')==loggedInUser.id }">-->
+<!--{{sweet.get("senderName")}}-->
+<!--<span class="well-small"> {{sweetPerson(sweet.get("senderName"))}}-->
+<!--&nbsp;{{sweet.get('text') || sweet.get('gesture').template}}-->
+<!--&nbsp;{{sweetPersonMe(sweet.get("receiverName"),sweet.get("senderName"))}}-->
+<!--</span>-->
+<!--- {{sweet.get("senderPhone")}} - {{sweet.get("receiverName")}} - {{sweet.get("receiverPhone")}}-->
+<!--</a>-->
+<!--<br/><span style='font-size: 9px'> {{sweet.updatedAt | date:'MMM dd, yyyy'}}</span>-->
+<!--</div>-->
+<!--<br/>-->
+<!--</h4>-->
+<!--</div>-->

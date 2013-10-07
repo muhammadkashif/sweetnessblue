@@ -1,0 +1,19 @@
+<div xmlns="http://www.w3.org/1999/html">
+    <p>{{loggedInUser.get("fullName")}} Sweetness! <a href="#/sweet/new">New Sweet</a></p>
+    <!--<button ng-click="getUserSweets()">Refresh</button>-->
+    <div ng-repeat="userSweet in userSweets">
+
+        <button ng-click="getMyUserSweets(userSweet.id)">{{userSweet.get("receiverName")}}</button>
+
+        <div class="well">
+            <div ng-repeat="sweet in userSweet.get('sweets')">
+                {{sweet.get("id")}}
+                <img height="25px" width="25px" ng-src="img/avatar.png">
+            </div>
+            <!--{{userSweet["fulName"]}}-->
+            <!--<a href="#" ng-click="getSweets()">Sweets</a>-->
+        </div>
+
+    </div>
+
+</div>

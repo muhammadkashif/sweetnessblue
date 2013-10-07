@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>sweet-4</title>
+<link href="css/sweet-place.css" rel="stylesheet" type="text/css">
+<link href="fonts/style-typo.css" rel="stylesheet" type="text/css">
+<link href="fonts/style-typo.css" rel="stylesheet" type="text/css">
+<link href="css/responsive-place.css" rel="stylesheet" type="text/css">
+
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<!--<meta name="viewport" content="width=640" />-->
+
+<!--
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="author" content="O2 Labs">
+<meta name="description" content>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 " />-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 "/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+<link rel="apple-touch-icon" href="images/touch-icon-iphone.png">
+<link rel="apple-touch-icon" sizes="114x114" href="images/touch-icon-iphone4.png">
+<link rel="apple-touch-startup-image" href="images/demo.png">
+<link rel="shortcut icon" href="images/favicon0.ico">
+</head>
+
+<body>
+<section class="container">
+  <div class="wrapper">
+    <div class="wrapper-inner">
+      <header>
+        <section class="search-btn"><a href="#" class="nad-a nad-b"> 
+        <img class="a" src="images/search-btn-single.png" alt="search"> 
+        <img class="b" src="images/search-btn-single-h.png" alt="search"> </a> </section>
+        <!--<div class="top-circle"> <a href="#"><img src="images/top-green-btn.png" width="310" height="115" alt="img"></a> </div>--> 
+        
+        <span> Muhammad Bilal </span>
+        <section class="header-right-btn"><a href="#" class="nad-a nad-b"> 
+        <img class="a" src="images/header-right-btn-single.png" alt="btn"> 
+        <img class="b" src="images/header-right-btn-single-h.png" alt="btn"> </a> </section>
+      </header>
+      <div class="clear"></div>
+      <div class="create-a-place">
+        <div class="col07">
+          <input name="" class="text-field" type="text">
+        </div>
+        <div id="map_canvas" class="gmap"></div>
+        <div class="col07"> 
+          <!--<input name="" class="create-place-btn-gmail create-place-btn" type="button" value="Create This Place" ng-click=creatPlaceParse(place) />-->
+          <input type="submit" ng-disabled="placeForm.placeaddress.$pristine || placeForm.placeaddress.$dirty && placeForm.placeaddress.$invalid"
+                           class="create-place-btn-gmail create-place-btn" value="Create This Place"
+                           ng-class="{enable : !placeForm.placename.$invalid || !placeForm.placeaddress.$invalid, disable : placeForm.placename.$invalid || placeForm.placeaddress.$invalid}"/>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+    <section class="bottom-area-container">
+      <section class="bottom-area">
+        <section class="setting-btn"><a href="#" class="nad-a nad-b"> 
+        <img class="a" src="images/setting-icon-single.png" alt="setting"> 
+        <img class="b" src="images/setting-icon-single-h.png" alt="setting"> </a></section>
+        <section class="bottom-green-btn"><a href="#"><img alt="img" src="images/bottom-green-btn.png"></a> </section>
+        <section class="place-btn"><a href="#" class="nad-a nad-b">
+         <img class="a" src="images/place-btn-single.png" alt="setting"> 
+         <img class="b" src="images/place-btn-single-h.png" alt="setting"> </a> </section>
+      </section>
+    </section>
+  </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!--<a href="#/sweet/new" title="Edit Sweet" class="pull-right">Preview </a>-->
+<!--<a href="#/sweet/new" title="Edit Sweet">Back </a>-->
+<div class="well">
+    <img class="img-polaroid" ng-src="img/avatar.png" height="50px" width="50px"> {{newSweet.receiverName}}
+
+    <div>{{newSweet.text}}</div>
+    <br/>
+
+    <div class='pull-right'>
+        <!--<a ng-click="setSweetExpression('picture')" ng-show=newSweet.picture href="" ><img class="img-polaroid" height="32px" width="32px" ng-src="{{newSweet.picture.url}}"></i>-->
+        <!--<a ng-click="setSweetExpression('picture')" href="" class="fileupload-preview"><img class="img-polaroid" height="32px" width="32px" ng-src="{{newSweet.picture.url}}"></i>-->
+        <!--</a>-->
+        <a ng-click="setSweetExpression('star')" ng-show=newSweet.star href=""><span class="add-on"
+                                                                                     style="font-size: 32px"><i
+                class="add-on iconic-star icon-large"></i></span>
+        </a>
+        <a ng-click="setSweetExpression('heart')" ng-show=newSweet.heart href=""><span class="add-on"
+                                                                                       style="font-size: 32px"><i
+                class="add-on iconic-heart-stroke icon-white"></i></span>
+        </a>
+    </div>
+    <br/>
+
+</div>
+
+<div class="controls well btn-toolbar" align="center" style="font-size: 32px">
+
+    <!--<span class="fileupload fileupload-new" data-provides="fileupload">-->
+    <!--&lt;!&ndash;<div class="fileupload-preview thumbnail" style="width: 200px; height: 150px;"></div>&ndash;&gt;-->
+    <!--<span>-->
+    <!--<span class="add-on btn-file"><span class="fileupload-new"><i class="add-on iconic-camera icon-large" ng-model=newSweet.picture></i></span>-->
+    <!--<span class="fileupload-exists btn-link"><i class="icon-edit icon-large"></i></span>-->
+    <!--<input type="file" />-->
+    <!--</span>-->
+    <!--<a href="#" class="btn btn-link fileupload-exists" data-dismiss="fileupload"><i class="icon-remove icon-large"></i></a>-->
+    <!--</span>-->
+    <!--</span>-->
+
+
+    <!--<a class="btn btn-link" href="" ng-click="setSweetExpression('picture')"> <i class="icon-camera-retro icon-large" ng-model=newSweet.picture></i></a>-->
+    <a class="btn btn-link" href="" ng-click="setSweetExpression('star')"> <i class="add-on iconic-star icon-large"
+                                                                              ng-model=newSweet.star></i> </a>
+    <a class="btn btn-link" href="" ng-click="setSweetExpression('heart')"> <i
+            class="add-on iconic-heart-stroke icon-large" ng-model=newSweet.heart></i> </a>
+</div>
+
+<!--<h4>Choose picture</h4>-->
+<!--<p fileselect="" swfile="newSweet.picture.url"></p>-->
+
+<div class="controls row-fluid">
+    <!--<div class="controls">-->
+
+    <button id="sendSweet" class="btn btn-large btn-primary input-xxlarge span12" ng-click="sendSweet()"
+            ng-disabled="newSweetForm.$invalid">
+        <span class="btn-label">Send Sweetness</span>
+    </button>
+
+</div>
+<br/>
+
+
+
+

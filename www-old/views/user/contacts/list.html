@@ -1,0 +1,41 @@
+<!--list of friends-->
+<div class="well" xmlns="http://www.w3.org/1999/html">
+    <section id="#avatar" class="" align="center">
+        <input typeahead source="source" emails="emails" typeahead-Model="selected">
+        <button class="" style="padding: 2px 1px 1px 4px; margin-bottom: 8px;background-color:#3ac6f3">
+
+            <a href="#/user/contactsImport">
+                <img ng-style='{"background": interaction.get("avartar") }'
+                     ng-src="img/add.png" class="img-polaroid" height="50px" width="50px" ng-click="">
+                <br/>
+                New Contact
+            </a>
+        </button>
+        <!--Frinds in Email:-->
+        </br>Google:<br/>
+                                <span ng-repeat="contact in gmailUserContacts">
+                                        <!--<button class="" style="height:120px;width:80px;padding: 2px 1px 1px 4px; margin-bottom: 8px;background-color:#3ac6f3">-->
+                                        <div>
+                                            <img ng-style='{"background": interaction.get("avatar") }'
+                                                 ng-src="img/avatar.png" class="img-polaroid"
+                                                 style="height:50px;width:50px" ng-click="">
+                                            <!--<br/>-->
+                                            <a style="font-size:12px;color:#e21d41" href=""
+                                               ng-click="">{{contact.name}}</a>
+                                            <!--</button>-->
+                                        </div>
+                                </span>
+        <!--</br>Yahoo:-->
+        <!--<span ng-repeat="contact in yahooUserContacts">-->
+        <!--<button class="" style="padding: 2px 1px 1px 4px; margin-bottom: 8px;background-color:#3ac6f3">-->
+        <!--<img ng-style='{"background": interaction.get("avatar") }'-->
+        <!--ng-src="img/avatar.png" class="img-polaroid" height="50px" width="50px" ng-click="">-->
+        <!--<br/>-->
+        <!--<a style="color:#e21d41" href="" ng-click="">{{contact.sname}}</a>-->
+        <!--</button>-->
+
+
+        <!--</span>-->
+    </section>
+
+</div>

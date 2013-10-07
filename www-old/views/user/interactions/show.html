@@ -1,0 +1,129 @@
+<!--TODO: handle Page refresh-->
+<div class="well">
+    <!--<div  align="center">-->
+    <div>
+        <a href="" ng-click="interactWithPerson()">
+            <img class="add-on img-polaroid" style="height:32px; width:32px"
+                 ng-src="{{interactingPersonAvatar || 'img/avatar.png'}}"/>
+        </a>
+    </div>
+
+    <h4 style="margin-left: 50px;margin-top: -42px">
+        <a href="" ng-click="interactWithPerson()">{{interactingPersonName || ""}}</a>
+        <br/>
+        <i ng-class="interactionData.playIcon" ng-click="saveInteractionPlay(interactionData.play)"
+           ng-model="interactionData.play"></i>
+        <i class="icon-eject" ng-click="saveInteractionEject()"></i>
+    </h4>
+
+
+    <div style="margin-top: -24px;margin-left: -4px">
+        <i class="icon-large" ng-class="interactionData.lockIcon"
+           ng-click="saveInteractionVisibility(interactionData.visibility);$event.stopPropagation()"
+           ng-model="interactionData.visibility">
+        </i>
+    </div>
+
+    <div style="margin-top: -22px;margin-left: 28px;width:20px;height:20px">
+        <!--<img  ng-show="interactionData.event"  ng-src="img/events/{{interactionData.event}}.png"/>-->
+    </div>
+
+
+    <!--</div>-->
+    <!--<div style="margin-left:30px;margin-top:-12px;padding-top:0px">-->
+    <!--<div >-->
+    <!--</div>-->
+
+
+    <!--</div>-->
+</div>
+
+<!-- <div class="well"> -->
+<!-- <div class="row-fluid"> -->
+<!-- <span class="span12"> -->
+<!-- {{interactionData.frequencyString || "VIP"}} -->
+<!-- <div>VIP Weekly Monthly Yearly</div>
+<div id="frequency-slider">
+<input ng-change="saveInteractionFrequency(interactionData.frequency)" class="input-block-level" type="range" name="points" min="1" max="4" value="2" ng-model="interactionData.frequency">
+</div> -->
+<!--<div class="btn-group row-fluid">-->
+<!--<button style="margin: 0" class="btn btn-primary span1" ng-model="interactionData.vip" ng-click="saveFrequency('vip')">VIP</button>-->
+<!--<button style="margin: 0" class="btn btn-primary span1" ng-model="interactionData.weekly" ng-click="saveFrequency('weekly')">Weekly</button>-->
+<!--<button style="margin: 0" class="btn btn-primary span1" ng-model="interactionData.monthly" ng-click="saveFrequency('monthly')">Monthly</button>-->
+<!--<button style="margin: 0" class="btn btn-primary span1" ng-model="interactionData.yearly" ng-click="saveFrequency('yearly')">Yearly</button>-->
+<!--</div>-->
+<!-- </span> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<div id="sweet-events-btn-group" class="sweet-section">
+    <div class="inner-sweet-btn-group">
+        <button ng-model="interactionData.event" class="interaction-events-btn interactionData-background  event-button"
+                ng-class="{selected: interactionData.event==event }" ng-repeat="event in interactionEvents"
+                ng-click="saveInteractionEvent(this)">
+            <img ng-src="img/events/{{event}}.png" width="22px" height="22px">
+        </button>
+    </div>
+</div>
+
+<!-- <br/> <br/>  -->
+
+<div id="sweet-frequency-btn-group" class="sweet-section">
+    <div class="inner-sweet-btn-group">
+        <button ng-class="{selected: interactionData.frequency==frequency }"
+                ng-repeat="frequency in interactionFrequencies"
+                class="interaction-frequency-btn interactionData-background btn frequency-button"
+                ng-model="interactionData.frequency" ng-click="saveInteractionFrequency(this)">
+            <span>{{frequency}}</span><br/>
+            <span ng-show="interactionData.frequency==frequency"> <img src="img/frequency/Anchor.png" width="16px"
+                                                                       height="16px"></span>
+            <span ng-show="interactionData.frequency!=frequency"> <img src="" width="16px" height="16px"></span>
+        </button>
+    </div>
+</div>
+<!-- <br/> <br/> -->
+
+<!--<div id="frequency-slider">-->
+<!--<input ng-change="saveInteractionFrequency(interactionData.frequency)" class="input-block-level" type="range" name="points" min="1" max="4" value="2" ng-model="interactionData.frequency">-->
+<!--</div>-->
+<!--<br/><br/>-->
+
+
+<div class="sweet-section">
+    <form>
+        <textarea ng-model="interactionData.notes" id="sweetTags" class="input-xxlarge input-block-level"
+                  placeholder='My notes about {{interactingPersonName}}'></textarea>
+        <button class="btn btn-primary" ng-click="saveInteractionNotes(interactionData.notes)">Save</button>
+    </form>
+</div>
+
+<!--<div ng-repeat="sweet in interactionSweets() | filter:hideAutoReply">-->
+<div ng-repeat="sweet in sweets | filter:hideAutoReply">
+    <!-- <div> -->
+    <h4 style="display:inline">
+        <a href="" ng-click="respondToSweet(sweet)">
+            <img style="width:48px;height:48px;" ng-src="{{getAvatar(sweet.get('senderPhone')) || 'img/avatar.png'}}"
+                 class="img-polaroid">
+            {{sweet.get("senderName")}}
+            <!--- {{sweet.get("senderPhone")}} - {{sweet.get("receiverName")}} - {{sweet.get("receiverPhone")}}-->
+        </a>
+        <span style='font-size: 9px'> {{sweet.updatedAt | date:'MMM dd, yyyy'}}</span>
+    </h4>
+    <!-- </div> -->
+    <!--color:{{sweet.get("fontColor")}};-->
+
+    <!--<div class="well" style="margin-top: 10px;background: url(' {{sweet.get('greetingBackground') }} ') ">-->
+    <!--<div style='color:{{sweet.get("fontColor")}};'>-->
+    <!--{{sweet.get("text")}}-->
+    <!--</div>-->
+    <!--<div class="pull-right" style="margin-bottom: 50px">-->
+    <!--<img ng-show="sweet.get('heart')" height="32px" width="32px" ng-src="img/Heart-Fuller.png">-->
+    <!--<img ng-show="sweet.get('star')" height="32px" width="32px" ng-src="img/Star-Fuller-Brighter.png">-->
+    <!--</div>-->
+    <!--<br/>-->
+    <!--</div>    -->
+    <!-- </div> -->
+</div>
+<button style="margin: 0" id="sendSweet" class="btn btn-primary span12" ng-click="interactWithPerson()">
+    <span class="btn-label">Send Sweetness</span>
+</button>

@@ -1,0 +1,27 @@
+<div class="wrapper" ng-controller="AuthController">
+
+    <!-- <div class="logo">
+        <img src="images/logo.png" width="990" height="272" alt="logo" />
+    </div>-->
+
+    <div class="clear"></div>
+
+    <section ng-hide="section.loginInProgress">
+
+        <div class="logout-btn">
+            <input name="" value="Logout" type="button" ng-click="facebookUnLink()">
+        </div>
+    </section>
+
+    <section ng-show="section.loginInProgress">
+
+        <br/><br/><br/><br/><br/><br/><br/><br/>
+
+        <div align="center"><img src="images/spinner.gif"/></div>
+    </section>
+
+
+</div>
+
+
+

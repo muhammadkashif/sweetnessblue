@@ -1,0 +1,90 @@
+<!--
+<div class="clear"></div>
+<div class="create-a-place">
+
+    <h2>Create a Place</h2>
+
+    <div class="col07">
+
+        <input name="" class="text-field" placeholder="Name your place" type="text" ng-model="place.name" required />
+        <input name="" class="text-field" placeholder="Grab a $sweetname" type="text" ng-model="place.sweetname" required />
+        <input name="" class="text-field" placeholder="Write a description" type="text" ng-model="place.description" required />
+        <input name="" class="text-field" placeholder="Enter URL" type="text" ng-model="place.url" required />
+
+        <input id="Latitude" type="hidden" value={{clickedLatitudeProperty}} ng-model="place.Latitude">
+        <input id="Longitude" type="hidden" value={{clickedLongitudeProperty}} ng-model="place.Longitude">
+
+        <input name="" class="create-place-btn" type="button" value="Create This Place" ng-click=creatPlaceParse(place)>
+
+    </div>
+
+       <div class="clear"></div>
+</div>-->
+
+
+<div class="create-a-place">
+
+    <form name="placeForm" onkeypress="return event.keyCode != 13;">
+        <!--<input id="Latitude" type="hidden" value={{clickedLatitudeProperty}} ng-model="place.Latitude">
+    <input id="Longitude" type="hidden" value={{clickedLongitudeProperty}} ng-model="place.Longitude">-->
+
+        <div class="col07">
+            <input name="placename" class="text-field" placeholder="Name your place" type="text" ng-model="place.name"
+                   ng-trim='false' ng-pattern="/^[\S]*$/" required/>
+            <span class="input-help" ng-show="placeForm.placename.required">
+                <h4>Required!</h4>
+            </span>
+            <span class="input-help" ng-show="placeForm.placename.$error.pattern">
+                <h4>No space allowed.</h4>
+            </span>
+        </div>
+
+        <div class="col07">
+            <input name="placetitle" class="text-field" placeholder="Place title" type="text" ng-model="place.title"
+                   ng-trim='false' required/>
+            <span class="input-help" ng-show="placeForm.placetitle.required">
+                <h4>Required!</h4>
+            </span>
+        </div>
+
+        <div class="col07">
+            <input name="placeaddress" id="target" type="text" class="text-field" placeholder="Enter a place or address"
+                   ng-model="place.sweetname" required>
+        </div>
+
+        <div class="col07">
+            <input name="placeaddress2" id="address2" type="text" class="text-field" placeholder="Enter a place or address2"
+                   ng-model="place.address2" required>
+        </div>
+
+        <div class="col07">
+            <sweetplacefileselect align="center" showprogress="util.showProgress" swfile="user.avatarUrl" attr1="50" >
+            </sweetplacefileselect>
+        </div>
+
+        <!--<map id="map_canvas"></map>-->
+        <img  id="avatar_canvas" ng-show='userAvatar' ng-src="{{userAvatar}}"/>
+        <div id="map_canvas" class="gmap" ng-show='!userAvatar'></div>
+
+        <div class="col07">
+            <!--<input name="" class="create-place-btn-gmail create-place-btn" type="button" value="Create This Place" ng-click=creatPlaceParse(place) />-->
+            <input type="submit"
+                   ng-disabled="placeForm.placeaddress.$pristine || placeForm.placeaddress.$dirty && placeForm.placeaddress.$invalid || placeForm.placename.$pristine || placeForm.placename.$dirty && placeForm.placename.$invalid"
+                   class="create-place-btn-gmail create-place-btn" value="Create This Place"
+                   ng-class="{enable : !placeForm.placename.$invalid || !placeForm.placeaddress.$invalid, disable : placeForm.placename.$invalid || placeForm.placeaddress.$invalid}"
+                   ng-click="creatPlaceParse(place)"/>
+        </div>
+
+    </form>
+    <div class="col02-placeMsg" ng-show="placeMsg">
+        <span>Place already exist.</span>
+
+        <div class="send-btn" ng-click="placeReload()"><a>Ok</a></div>
+        <!--<div class="cancel-btn"> <a ng-click="cancelGestureAction()">Cancel</a></div>
+    <div class="send-btn"> <a ng-click="sendSweetness()">Send</a> </div>-->
+
+    </div>
+
+</div>
+
+

@@ -1,0 +1,62 @@
+<!--<h3>Feed</h3>-->
+<div flip leftPage="/sweet/timeline" rightPage="/sweet/friend">
+    <div class="feeds-area">
+
+
+        <a ng-repeat="sweet in feeds.sortByProp('updatedAt')">
+            <div class="col01">
+                <div class="feed-img">
+                    <img ng-src="{{sweet.get('senderPicture') || 'img/avatar.png'}}"/>
+                </div>
+
+                <div class="text">
+                    <p>
+                        <!--<span ng-bind-template="-->
+                        <!--{{sweetPerson(sweet)}}-->
+                        <!--{{sweet.get('text') || sweet.get('gesture').template}}-->
+                        <!--{{sweetPersonMe(sweet)}}">-->
+                        <!--</span>-->
+                        <span sweet="{{sweet}}"></span>
+                        <br/>
+                        <span ng-bind-template="{{ sweet.updatedAt.toRelativeTime() }}"></span>
+
+
+                    </p>
+                </div>
+
+            </div>
+        </a>
+
+    </div>
+</div>
+
+
+<!--<div class="wrapper-feeds">-->
+<!--</div>-->
+
+
+<!--<div ng-repeat="sweet in sweets.sortByProp('updatedAt')">-->
+<!--<h4 style="display:inline">-->
+<!--<a href="" ng-click="respondToSweet(sweet)">-->
+<!--<div class="well-small">-->
+<!--<img style="width:48px;height:48px;margin-right:8px" ng-src="{{sweet.get('senderPicture') || 'img/avatar.png'}}"-->
+<!--class="round-image-medium" ng-class="{alignleft: sweet.get('senderId')==loggedInUser.id }">-->
+<!--{{sweet.get("senderName")}}-->
+<!--<span class="well-small"> {{sweetPerson(sweet.get("senderName"))}}-->
+<!--&nbsp;{{sweet.get('text') || sweet.get('gesture').template}}-->
+<!--&nbsp;{{sweetPersonMe(sweet.get("receiverName"),sweet.get("senderName"))}}-->
+<!--</span>-->
+<!--</a>-->
+<!--<br/><span style='font-size: 9px'> {{sweet.updatedAt | date:'MMM dd, yyyy'}}</span>-->
+<!--</div>-->
+<!--<br/>-->
+<!--</div>-->
+
+<!--Feed-->
+<!--<section id="sweets-button">-->
+<!--<div ng-click="showTimeline()" class="halfCircleBottom">-->
+
+<!--</div>-->
+<!--</section>-->
+
+<!--<div ng-show="sweets.length == 0">No Feed</div>-->

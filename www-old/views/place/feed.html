@@ -1,0 +1,37 @@
+<div class="clear"></div>
+<div class="place-2-area">
+
+    <section ng-include="'views/place/placeHeader.html'"></section>
+
+    <div flipplace leftPage="/place/timeline" rightPage="/place/friend">
+        <div class="feeds-area-place">
+            <a ng-repeat="sweet in feeds.sortByProp('updatedAt')">
+                <div class="col01">
+                    <div class="feed-img">
+                        <img ng-src="{{sweet.get('senderPicture') || 'img/avatar.png'}}"/>
+                    </div>
+
+                    <div class="text">
+                        <p>
+                            <!--<span ng-bind-template="-->
+                            <!--{{sweetPerson(sweet)}}-->
+                            <!--{{sweet.get('text') || sweet.get('gesture').template}}-->
+                            <!--{{sweetPersonMe(sweet)}}">-->
+                            <!--</span>-->
+                            <span sweet="{{sweet}}"></span>
+                            <br/>
+                            <span ng-bind-template="{{ sweet.updatedAt.toRelativeTime() }}"></span>
+
+
+                        </p>
+                    </div>
+
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+</div>
+<div class="clear"></div>
+

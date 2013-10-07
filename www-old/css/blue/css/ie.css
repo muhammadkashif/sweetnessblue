@@ -1,0 +1,6 @@
+.container_ROW { min-height: 100%; }
+* html .container_ROW { height: 100%; }
+.container_ROW { padding-bottom:expression(document.getElementById("footer").offsetHeight + "px");
+}
+.footer_GROUP { position: relative; margin-top:expression(- this.offsetHeight + "px");
+}

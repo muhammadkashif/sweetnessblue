@@ -1,0 +1,9 @@
+<h2>Bulk Gestures</h2>
+<p>Contacts should be imported first</p>
+<p>You are logged in as {{loggedInUser.get("fullName")}} ({{loggedInUser.get("username")}})</p>
+
+<textarea id="gestureText" style="margin: 2px" rows="3" class="input-block-level" required id="sweetText"
+          ng-model=bulkSweet.text placeholder='Thinking of you and sending you much sweetness!'></textarea>
+
+<button class="btn btn-primary" ng-click="createBulkGestures()">Create bulk Gestures</button>
+<p>{{bulkCreationStatus}}</p>                               

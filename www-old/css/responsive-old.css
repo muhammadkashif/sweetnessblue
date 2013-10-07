@@ -1,0 +1,52 @@
+/*
+@media screen and (max-device-width: 900px) {
+body {
+	 transform:none;
+	 transform-origin: 0 0 0 0;
+}
+} */
+
+@media (min-width:990px) and (max-width:1680px) {
+
+    body {
+        transform: scale(0.42);
+        transform-origin: 50% 0;
+
+        -webkit-transform: scale(0.42);
+        -webkit-transform-origin: 50% 0;
+
+        -moz-transform: scale(0.42);
+        -moz-transform-origin: 50% 0;
+
+        -o-transform: scale(0.42);
+        -o-transform-origin: 50% 0;
+
+        -ms-transform: scale(0.42);
+        -ms-transform-origin: 50% 0;
+
+    }
+
+}
+
+@media only and
+
+(
+max-width:
+
+640
+px
+
+)
+{
+
+body {
+    transform: none;
+    transform-origin: 0 0 0 0;
+
+}
+
+    }
+
+	 	
+
+

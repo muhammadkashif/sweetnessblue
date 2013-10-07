@@ -1,0 +1,72 @@
+<section>
+    <div class="name-field">
+        <input type="text" placeholder="start writing friend's name"
+               ng-model="section.friendSearchText"
+               autofocus="autofocus"
+               autocorrect="off"
+                />
+    </div>
+
+    <!--<button ng-click="cancelFriendsSearch()">Cancel</button>-->
+</section>
+
+<div class="clear"></div>
+
+<section class="feeds-area-search" ng-show="section.friendSearchText">
+    <!--<ul class="unstyled">-->
+    <div ng-repeat="friend in friends | filter:section.friendSearchText">
+        <div class="col01">
+            <div class="user-img">
+                <img tap ng-src="{{friend['picture']['data']['url']}}"
+                     title="{{friend['name']}}"
+                     ng-click="searchFriend(friend)"
+                        />
+            </div>
+
+            <div class="my-text">
+                <p data-ng-bind="friend.name"
+                   ng-click="searchFriend(friend)"></p>
+            </div>
+        </div>
+
+    </div>
+    <!--</ul>-->
+</section>
+
+<!--<section>
+    <div class="name-field">
+        <input type="text" placeholder="start writing place's name"
+               ng-model="section.placeSearchText"
+               autofocus="autofocus"
+               autocorrect="off"
+                />
+    </div>
+
+</section>-->
+
+<div class="clear"></div>
+
+<section class="feeds-area-search" ng-show="section.friendSearchText">
+
+    <div ng-repeat="place in places | filter:section.friendSearchText">
+        <div class="col01">
+            <!--<div class="user-img">
+                <img ng-src="{{place.get('placeImg') || 'img/avatar.png'}}"
+                     title="{{place.get('placeName')}}"
+                     ng-click="addPlace(place)"   />-->
+            <div class="user-img">
+                <img ng-src="{{place.get('placeImg') || 'img/avatar.png'}}"
+                     title="{{place.get('placeName')}}"
+                     ng-click="myPlaceDetail(place)"/>
+            </div>
+
+            <div class="my-text">
+                <p ng-bind-template="{{place.get('placeName')}}"
+                   ng-click="myPlaceDetail(place)"></p>
+            </div>
+            <span sweetplace="{{place}}"></span>
+        </div>
+
+    </div>
+
+</section>

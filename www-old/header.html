@@ -1,0 +1,131 @@
+<!--<header id="top-nav">-->
+<!--<nav>-->
+<!--<ul class="unstyled clearfix">-->
+<!--<li ><img src="img/navigation/Users-Search.png"/></li>-->
+<!--<li>{{sweeter.name}}</li>-->
+<!--<li  ng-class="{sub_actions: sub_actions}" ng-click="resetGestures()">-->
+<!--<img src="img/navigation/Communication.png"/>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</nav>-->
+
+<!--</header>-->
+
+<!--<div class="navbar">-->
+<!--<div class="navbar-inner">-->
+<!--<div class="container">-->
+<!--<ul class="nav">-->
+<!--<li ><img src="img/navigation/Users-Search.png" ng-click="togglePeopleSearchBox()"/></li>-->
+<!--</ul>-->
+<!--<ul class="nav">-->
+<!--<li>{{sweeter.name}}</li>-->
+<!--</ul>-->
+<!--<ul class="nav pull-right">-->
+<!--<li><flip ng-click="navigateToLastVisitedPage()" class="halfCircleBottom" ng-show="fNavigationToInteraction">-->
+<!--</flip></li>-->
+<!--<li ng-class="{sub_actions: sub_actions}" ng-click="resetGestures()">-->
+<!--<img src="img/navigation/Communication.png"/>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<header ng-show="isUserLoggedIn">
+
+    <!--<section class="search-btn"> <a href="#"> </a> </section>-->
+    <!--<div class="top-circle"> <a href="#"><img src="images/top-green-btn.png" width="310" height="115" alt="img"></a> </div>-->
+    <!--<section class="header-right-btn"> <a href="#"> </a> </section>-->
+    <!--<section class="logout_btn">
+
+        <a ng-click="facebookUnLink()" ng-controller="AuthController">
+        </a>
+
+    </section>-->
+
+    <section class="setting-btn" ng-controller=SweetCtrl>
+        <!--<a href="#/place/sweetPlace">
+
+        </a>-->
+        <a ng-click="setting()">
+
+        </a>
+    </section>
+
+
+    <!-- <section class="search_btn" ng-hide="hideSearch()" >-->
+    <!--<a ng-click="togglePeopleSearchBox()"> <img src="images/search-btn.png" width="98" height="98" alt="setting"></a>-->
+    <!--<a href="#/sweet/fsearch">-->
+    <!--<a ng-click="showSearch()">-->
+
+    <!--</section>-->
+
+    <span ng-hide="showTopCircle()" data-ng-bind="sweeter.name"></span>
+
+    <div class="top-circle" drag-circles>
+        <a ng-click="navigateToLastVisitedPage()" ng-show="showTopCircle()">
+            <img src="images/top-green-btn.png" width="310" height="115" alt="img">
+        </a>
+    </div>
+
+    <section class="header-right-btn" ng-hide="hideRightBtn()">
+        <!--<a ng-click="resetGestures()">
+           
+        </a>-->
+        <a ng-click="navigateToSweetPlace()" ng-controller="SweetCtrl"></a>
+    </section>
+
+</header>
+
+<div class="clear"></div>
+
+<!--<flip sweets="sweets" leftPage="/sweet/feed" rightPage="/sweet/timeline">-->
+
+<!--<div class="navbar">-->
+<!--<div class="navbar-inner">-->
+<!--<div class="container">-->
+
+<!--<img class="btn btn-navbar" width="25px" height="25px" ng-src="{{userAvatar}}" ng-click="showPreference()">-->
+<!-- <canvas style="padding-top:6px" height="48" width="48" id="canvas2" ng-click="showPreference()"></canvas> -->
+<!--<a style="margin-top: 10px" class="btn-navbar" data-toggle="collapse" data-target=".nav-collapse">-->
+<!--<span class="icon-bar"></span>-->
+<!--<span class="icon-bar"></span>-->
+<!--<span class="icon-bar"></span>-->
+<!--</a>-->
+
+<!--<a class="brand" href="#/sweet/new">Sweetness</a>-->
+<!--<a class="brand" ng-click="goToHome()">Sweetness</a>-->
+<!-- <ul class="nav pull-right">                                                                  -->
+<!-- <li><img  ng-src="{{userAvatar || 'img/avatar.png'}}" width="32px" height="12px" style="margin-top:10px" ng-click="showPreference()">  -->
+<!-- <li><img  ng-src="http://fast-bayou-8907.herokuapp.com/convert?resize=24x24&source={{userAvatar}}" width="24px" height="24px"  ng-click="showPreference()">  -->
+<!-- </li>         -->
+<!-- </ul> -->
+
+<!--<img ng-show='!userAvatar' class="btn" style="margin-top:5px;vertical-align:middle;" ng-src="img/avatar.png" ng-click="showPreference()" width="32px" height="32px"/>-->
+
+<!--<img  ng-show='userAvatar' class="btn" style="margin-top:8px;vertical-align:middle;"-->
+<!--ng-src="http://fast-bayou-8907.herokuapp.com/convert?resize=32x32&source={{userAvatar}}"-->
+<!--ng-click="showPreference()"/>-->
+
+<!--<img class="img-polaroid" style="margin-top:8px;vertical-align:middle;"-->
+<!--ng-src="http://graph.facebook.com/{{socialNetworks[0].get('me')['picture']}}/picture"-->
+<!--ng-click="showPreference()"/>-->
+
+
+<!--<div class="nav-collapse collapse">-->
+<!--<ul ng-show="loggedInUser" class="nav pull-right">-->
+<!--<li><a href="#/user/preference">{{loggedInUser.get("fullName")}}</a></li>-->
+<!--<li><a href="#/help/new">Help</a></li>-->
+<!--<li><a href="#/company/privacy">Privacy</a></li>-->
+<!--<li><a ng-click="logout()" href="#">Logout</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--/.nav-collapse -->
+
+
+<!--<div class="navbar-content">-->
+<!--<ul class="nav"></ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

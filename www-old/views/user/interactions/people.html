@@ -1,0 +1,141 @@
+<!--<section id="people-search-box" ng-show="section.showPeopleSearchBox">-->
+<!--<div class="name-field">-->
+<!--<input type="text" placeholder="start writing friend's name"-->
+<!--ng-model="section.friendSearchText"-->
+<!--ng-change="friendSearch(section.friendSearchText)"-->
+<!--autofocus="autofocus"-->
+<!--autocorrect="off"/>-->
+<!--</div>-->
+<!--<div class="clear"></div>-->
+<!--</section>-->
+
+<section class="top-circle-area">
+    <section class="circle-{{$index+1}}" ng-repeat="gesture in gestures[0].sub_actions">
+        <a ng-click="updateGestures(gesture)">
+            <span data-ng-bind-html="gesture.name"></span>
+        </a>
+    </section>
+</section>
+
+<div class="clear"></div>
+
+<section class="main-circle-area">
+
+    <section class="single-user-icon">
+        <a ng-click="showTimeline()"><img src="images/single-user.png" width="94" height="98" alt="user"/>
+        </a>
+    </section>
+
+    <section class="main-circle">
+        <img
+                src="images/main-circle-img.png" alt="img"
+                ng-src='{{magicButtonImage}}'
+                ng-click="navigateToInteraction()"
+                ondrop="drop(event)" ondragover="allowDrop(event)"
+                class="circle-main-img"
+                />
+
+        <div ng-show="showGestureSendActions">
+            <div class="col03"></div>
+            <div class="col04"><span data-ng-bind-html="newSweet.gesture.name"></span></div>
+        </div>
+
+    </section>
+
+    <section class="group-users-icon">
+        <a ng-click="showFeed()">
+            <img src="images/group-users.png" width="167" height="123" alt="group"
+                    />
+        </a>
+    </section>
+
+</section>
+
+<div class="clear"></div>
+
+<a ng-show="latestSweet && latestSweet.id && !showGestureSendActions">
+    <div class="col06 feeds-area-3">
+        <div class="feed-img">
+            <img ng-src="{{latestSweet.get('senderPicture') || 'img/avatar.png'}}"
+                 class="round-image-medium" ng-class="{alignleft: latestSweet.get('senderId')==loggedInUser.id }">
+        </div>
+
+        <div class="text">
+            <p>
+                <!--<span ng-bind-template="-->
+                <!--{{sweetPerson(latestSweet)}}-->
+                <!--{{latestSweet.get('text') || latestSweet.get('gesture').template}}-->
+                <!--{{sweetPersonMe(latestSweet)}}">-->
+                <!--</span>-->
+                <span sweet="{{latestSweet}}"></span>
+            </p>
+        </div>
+
+    </div>
+</a>
+
+<section class="gallery-area" ng-hide="latestSweet && latestSweet.id">
+    <section class="slide-images" id="friends-list" ng-hide="showGestureSendActions">
+        <ul class="image-gallery">
+            <li ng-repeat="friend in friends | startFrom:currentPage*pageSize | limitTo:pageSize">
+                <!-- <img tap ng-src="{{friend['picture']['data']['url']}}"
+                        title="{{friend['name']}}"
+                        ng-click="setFriend(friend)"
+
+                        next="nextPage()" prev="prevPage()"
+                        friend="{{friend}}"
+                />-->
+                <img tap ng-src="http://graph.facebook.com/{{friend['id']}}/picture?width=200&height=200"
+                     title="{{friend['name']}}"
+                     ng-click="setFriend(friend)"
+
+                     next="nextPage()" prev="prevPage()"
+                     friend="{{friend}}"
+                        />
+            </li>
+        </ul>
+    </section>
+    <div class="clear"></div>
+</section>
+
+
+<!--<ul>-->
+<!--ng-mouseDown="squeezeDown($event)" ng-mouseUp="squeezeUp($event)"-->
+<!--<li ng-repeat="friend in friends">-->
+<!--<img tap ng-src="{{friend['picture']['data']['url']}}"-->
+<!--ng-click="setFriend(friend)"/>-->
+<!--</li>-->
+<!--</ul>-->
+
+<div class="clear"></div>
+
+<div class="col02" ng-show="showGestureSendActions">
+    <div class="cancel-btn"><a ng-click="cancelGestureAction()">Cancel</a></div>
+    <div class="send-btn"><a ng-click="sendSweetness()">Send</a></div>
+
+</div>
+
+
+<!--<section ng-show="showGestureSendActions">-->
+<!--<button ng-click="showPeople()">Cancel</button>-->
+<!--<button ng-click="sendSweetness()">Send</button>-->
+<!--</section>-->
+
+<!--<section id="magic-box">-->
+<!--<img id="me" ng-src="img/Me.png"/>-->
+<!--<img id="magic-button" class="round-image"-->
+<!--ng-src='{{magicButtonImage || newSweet.senderPicture}}'-->
+<!--ng-click="showFriendInteraction()"-->
+<!--ondrop="drop(event)" ondragover="allowDrop(event)"-->
+<!--/>-->
+<!--<img id="people" src="img/People.png" ng-click="showPeople()"/>-->
+<!--</section>-->
+
+
+<!--<section id="sweets-button-bottom">-->
+<!--<div ng-click="navToFriend()" class="halfCircle">-->
+<!--</div>-->
+<!--</section>-->
+
+
+

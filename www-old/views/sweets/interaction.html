@@ -1,0 +1,22 @@
+<a href="#/sweet/new" title="Edit Sweet">Back </a>
+<div class="well">
+    <span ng-repeat="interaction in userSweets">
+                    <a href=""><img class="img-polaroid" src="img/avatar.png" height="32px" width="32px"
+                                    ng-click="loadSweets(interaction)"></a>
+                    <!--{{interaction.get("receiverName")}}-->
+    </span>
+</div>
+
+<div class="well">
+    <img height="25px" width="25px" ng-src="{{interactingPersonAvatar}}">
+    {{interactingPersonName || "NoName"}}
+</div>
+<!--<div class="well">-->
+<div class="well ng-repeat=" sweet in sweets">
+<img height="25px" width="25px" ng-src="img/avatar.png" class="thumbnail">
+{{sweet.get("senderName")}}:
+{{sweet.get("text")}}
+<span ng-show="sweet.get('heart')"><i class="icon-heart icon-white"></i></span>
+<span ng-show="sweet.get('star')"><i class="icon-star icon-white"></i></span>
+</div>
+<!--</div>-->

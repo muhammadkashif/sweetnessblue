@@ -1,0 +1,27 @@
+<section class="main-circle-area-place" ng-controller="SweetCtrlPlace">
+    <section class="main-circle">
+        <img
+                src="images/main-circle-img.png" alt="img"
+                ng-src='{{magicButtonImage || images/main-circle-img.png}}'
+                ng-click="navigateToInteraction()"
+                ondrop="drop(event)" ondragover="allowDrop(event)"
+                class="circle-main-img"
+                />
+
+        <div ng-show="section.sending">
+            <div class="col03"></div>
+            <div class="col04a"><span>Thank You</span></div>
+            <div class="col05" ng-hide="section.sendingPlace"><img src="images/tick-img.png" width="150" height="138"
+                                                                   alt="img"></div>
+        </div>
+
+    </section>
+</section>
+
+<div class="clear"></div>
+
+<div class="col02 col02-place" ng-show="showPlaceGestureSendActionsPlace">
+    <div class="cancel-btn"><a ng-click="cancelSweetPlace(placeInfo)">Cancel</a></div>
+    <div class="send-btn"><a ng-click="sendSweetnessPlaceGesture(placeInfo)">Send</a></div>
+    <span sweet="{{placeInfo}}"></span>
+</div>

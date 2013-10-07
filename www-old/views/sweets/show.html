@@ -1,0 +1,17 @@
+<div class="well">
+    <h4>
+        <img class="img-polaroid" ng-src="img/avatar.png" height="25px" width="25px"> <a href="#/sweet/userinteraction">{{sweet.get("senderName")}}</a>
+    </h4>
+
+    <p>{{sweet.get("text")}}</p>
+    <span ng-show="sweet.get('heart')"><i class="icon-heart icon-white"></i></span>
+    <span ng-show="sweet.get('star')"><i class="icon-star icon-white"></i></span>
+
+</div>
+
+<div class="controls row-fluid">
+    <button class="btn-small btn-primary input-xxlarge span12" ng-click="respondToSweet(sweet)">Send Sweetness</button>
+    <!--<button class="btn-small btn-primary">Respond Now</button>-->
+    <!--<button class="btn-small btn-warning">Save for Later</button>-->
+    <!--<button class="btn-small btn-danger">Ignore Please</button>-->
+</div>

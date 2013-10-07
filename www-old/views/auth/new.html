@@ -1,0 +1,95 @@
+<div class="wrapper" ng-controller="AuthController">
+    <div class="container_ROW">
+        <a href="#" class="logo"><img src="images/logo.png" alt="sweet"></a>
+        <section ng-hide="section.loginInProgress">
+            <form method="post" action="#">
+                <fieldset>
+                    <!--<span class="login-title">Login</span>-->
+                    <input name="" placeholder="enter your mobile number" class="texfield" type="tel" ng-model="user.phone">
+                    <!--<input type="password" name="#" placeholder="Password" class="texfield">
+                    <div class="login-holder">
+                        <span class="login-span-title">Forgot your password?</span>
+                        <span class="login-span-right">click here to <a href="#">Sign up now</a></span>
+                    </div>-->
+                    <input name="" class="login-btn bot-margin" value="Login" type="button" ng-click="newAuthSms()">
+                </fieldset>
+            </form>
+        </section>
+    </div>
+    <div class="footer_GROUP">
+        <div class="footer_HOLDER">
+            <div class="connect-media">
+                <section ng-hide="section.loginInProgress">
+                    <span class="connect-title">Connect with ...</span>
+                    <ul class="social-icons">
+                        <!--<li><a class="facebook" alt="facebook" ng-click="facebookLogin()">facebook</a></li>-->
+                        <li><a class="facebook" alt="facebook" ng-click="phonegapFBLogin()">facebook</a></li>
+                        <!--<li><a class="google">google</a></li>
+                        <li><a class="linkden">linkden</a></li>
+                        <li><a class="twitter">twitter</a></li>-->
+                    </ul>
+                    <span class="enterprice-title">Login here for enterprise account</span>
+                </section>
+            </div>
+        </div>
+    </div>
+    <section ng-show="section.loginInProgress">
+
+        <br/><br/><br/><br/><br/><br/><br/><br/>
+
+        <div align="center"><img src="images/spinner.gif" class="authanimation"/></div>
+
+        <br/><br/><br/><br/><br/>
+        <!--<p>-->
+        <!--<span>-->
+        <!--<h1 style="color:#b3ee0e" data-ng-bind="section.loginInProgressMsg"></h1>-->
+        <!--</span>-->
+        <!--</p>-->
+    </section>
+</div>
+
+
+
+<!--<div class="wrapper" ng-controller="AuthController">
+
+    <div class="logo">
+        <img src="images/logo.png" width="990" height="272" alt="logo"/>
+    </div>
+
+    <div class="clear"></div>
+
+    <section ng-hide="section.loginInProgress">
+        <div class="face-book-icon">
+            <a><img src="images/facebook-icon.png" width="263" height="263" alt="facebook"
+                    ng-click="facebookLogin()"></a>
+            &lt;!&ndash;<input type="button" onclick="login()" value="Login to Facebook" />&ndash;&gt;
+        </div>
+
+
+        <div class="login-field">
+            <input name="" placeholder="    enter mobile number" type="tel" ng-model="user.phone">
+        </div>
+
+        <div class="login-btn">
+            &lt;!&ndash;<input name="" value="Login" type="button" ng-click="newAuth()">&ndash;&gt;
+            <input name="" value="Login" type="button" ng-click="newAuthSms()">
+        </div>
+    </section>
+
+    <section ng-show="section.loginInProgress">
+
+        <br/><br/><br/><br/><br/><br/><br/><br/>
+
+        <div align="center"><img src="images/spinner.gif"/></div>
+        &lt;!&ndash;<p>&ndash;&gt;
+        &lt;!&ndash;<span>&ndash;&gt;
+        &lt;!&ndash;<h1 style="color:#b3ee0e" data-ng-bind="section.loginInProgressMsg"></h1>&ndash;&gt;
+        &lt;!&ndash;</span>&ndash;&gt;
+        &lt;!&ndash;</p>&ndash;&gt;
+    </section>
+
+
+</div>-->
+
+
+
